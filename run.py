@@ -32,3 +32,30 @@ class Hand(enum.Enum):
     rock = enum.auto()
     scissors = enum.auto()
 
+# Decide who wins function
+def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
+    if player_one_hand == player_two_hand:
+        return Result.draw
+    
+    elif player_one_hand == Hand.paper:
+        if player_two_hand == Hand.rock:
+            return Result.player_one_wins
+    
+        if player_two_hand == Hand.scissors:
+            return Result.player_two_wins
+    
+    elif player_one_hand == Hand.rock:
+        if player_two_hand == Hand.paper:
+            return Result.player_two_wins
+    
+        if player_two_hand == Hand.scissors:
+            return Result.player_one_wins
+
+    elif player_one_hand == Hand.scissors:
+        if player_two_hand == Hand.paper:
+            return Result.player_one_wins
+    
+        if player_two_hand == Hand.rock:
+            return Result.player_two_wins
+    else:
+        raise ValueError(f"Unknown combination of hands: {player_one_hand} & {play
