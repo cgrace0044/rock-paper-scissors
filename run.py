@@ -58,4 +58,8 @@ def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
         if player_two_hand == Hand.rock:
             return Result.player_two_wins
     else:
-        raise ValueError(f"Unknown combination of hands: {player_one_hand} & {play
+        raise ValueError(f"Unknown combination of hands: {player_one_hand} & {player_two_hand}")
+
+# function to display random choice between Rock, Paper and Scissors
+def get_random_hand() -> Hand:
+    return random.choice([Hand.paper, Hand.scissors, Hand.rock])
