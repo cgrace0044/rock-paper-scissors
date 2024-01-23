@@ -86,3 +86,6 @@ def main():
         game_is_finished = True
         winner = "player1" if result.player_one_wins else "player2"
         print(f"This game was won by {winner} in round {round}")
+
+if __name__ == "__main__":
+    main()
