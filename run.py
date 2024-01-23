@@ -63,3 +63,26 @@ def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
 # function to display random choice between Rock, Paper and Scissors
 def get_random_hand() -> Hand:
     return random.choice([Hand.paper, Hand.scissors, Hand.rock])
+
+def main():
+    # while the game is not finished:
+    # each opponent produces one of rock, paper or scissors
+    # the game logic decides who wins or if its a draw
+
+    game_is_finished = False
+    round = 1
+    while not game_is_finished:
+        player_one_hand = get_random_hand()
+        player_two_hand = get_random_hand()
+
+        print(f"Round {round} - Player one has produced: {player_one_hand}")
+        print(f"Round {round} - Player two has produced: {player_two_hand}")
+
+        result = decide_who_wins(player_one_hand, player_two_hand)
+        if result == Result.draw:
+            round += 1
+            continue
+
+        game_is_finished = True
+        winner = "player1" if result.player_one_wins else "player2"
+        print(f"This game was won by {winner} in round {round}")
