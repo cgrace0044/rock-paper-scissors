@@ -20,49 +20,44 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
 # print(data)
 
-# Class for win scenarios
+
 class Result(enum.Enum):
     player_one_wins = enum.auto()
     player_two_wins = enum.auto()
     draw = enum.auto()
 
-# Class for hand scenarios
+
 class Hand(enum.Enum):
     paper = enum.auto()
     rock = enum.auto()
     scissors = enum.auto()
 
-# Decide who wins function
+
 def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
     if player_one_hand == player_two_hand:
         return Result.draw
-    
     elif player_one_hand == Hand.paper:
         if player_two_hand == Hand.rock:
             return Result.player_one_wins
-    
         if player_two_hand == Hand.scissors:
             return Result.player_two_wins
-    
     elif player_one_hand == Hand.rock:
         if player_two_hand == Hand.paper:
             return Result.player_two_wins
-    
         if player_two_hand == Hand.scissors:
             return Result.player_one_wins
-
     elif player_one_hand == Hand.scissors:
         if player_two_hand == Hand.paper:
             return Result.player_one_wins
-    
         if player_two_hand == Hand.rock:
             return Result.player_two_wins
     else:
         raise ValueError(f"Unknown combination of hands: {player_one_hand} & {player_two_hand}")
 
-# function to display random choice between Rock, Paper and Scissors
+
 def get_random_hand() -> Hand:
     return random.choice([Hand.paper, Hand.scissors, Hand.rock])
+
 
 def main():
     # while the game is not finished:
@@ -86,6 +81,7 @@ def main():
         game_is_finished = True
         winner = "player1" if result.player_one_wins else "player2"
         print(f"This game was won by {winner} in round {round}")
+
 
 if __name__ == "__main__":
     main()
