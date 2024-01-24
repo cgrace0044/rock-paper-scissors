@@ -95,8 +95,47 @@ def welcome():
         "Hello " + username + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
+    menu()
 
+def menu():
+    """
+    play game or view instructions screen
+    """
+    print('Please choose from the following options:\n')
+    user_option = input(
+        f"{Fore.CYAN}P - PLAY\nI - INSTRUCTIONS{Fore.RESET}\n"
+        ).strip().lower()
 
+    if user_option == "p":
+            main()
+
+    elif user_option == "i":
+        #  Credit: https://www.asciiart.eu/art-and-design/borders
+        intro_message = """
+             __| |____________________________________________| |__
+            (__   ____________________________________________   __)
+               | |                                            | |
+               | |               How to Play                  | |
+               | |                                            | |
+               | |    Play Rock, Paper, Scissors against      | |
+               | |               the computer.                | |
+               | |                                            | |
+               | | Press 1 for rock, 2 for Scissors and 3 for | |
+               | |                  paper.                    | |
+               | |                                            | |
+               | |            Rock beats Scissors             | |
+               | |            Scissors beats Paper            | |
+               | |              Paper beats Rock              | |
+               | |                                            | |
+               | |         Can you beat the computer?         | |
+             __| |____________________________________________| |__
+            (__   ____________________________________________   __)
+               | |                                            | |
+            """
+        print(intro_message)
+    else:
+            print(Fore.RED + "Not a valid option\n")
+            self.menu()
 
 def main():
     # while the game is not finished:
