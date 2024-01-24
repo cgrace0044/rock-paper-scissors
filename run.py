@@ -2,6 +2,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 import enum
 import random
+import os
+import time
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -58,16 +60,44 @@ def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
 def get_random_hand() -> Hand:
     return random.choice([Hand.paper, Hand.scissors, Hand.rock])
 
+def get_user_choice():
+    input_valid = False
+    user_play = ''
+    while input_valid is False:
+        user_choice = input("Select your play: '1' Rock, '2' Scissors, '3' Paper : ")
+        if user_choice in ['1', '2', '3']: 
+            input_valid = True
+            if user_choice == '1':
+                user_play = Hand.rock
+            if user_choice == '2':
+                user_play = Hand.scissors
+            if user_choice == '3':
+                user_play = Hand.paper
+        else:
+            print('Please enter "1", "2" or "3"')
+    return user_play
+
+
+def welcome():
+    print('Welcome to the game')
+    print('  Instruction 1')
+    print('  Instruction 2')
+    print('  Instruction 3')
+    print('  Instruction 3')
+    time.sleep(3)
+    os.system('clear')
+
+
 
 def main():
     # while the game is not finished:
     # each opponent produces one of rock, paper or scissors
     # the game logic decides who wins or if its a draw
-
+    welcome()
     game_is_finished = False
     round = 1
     while not game_is_finished:
-        player_one_hand = get_random_hand()
+        player_one_hand = get_user_choice()
         player_two_hand = get_random_hand()
 
         print(f"Round {round} - Player one has produced: {player_one_hand}")
@@ -77,7 +107,7 @@ def main():
         if result == Result.draw:
             round += 1
             continue
-
+        print(f'result : {result}')
         game_is_finished = True
         winner = "player1" if result.player_one_wins else "player2"
         print(f"This game was won by {winner} in round {round}")
