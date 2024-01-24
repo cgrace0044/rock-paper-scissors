@@ -4,6 +4,7 @@ import enum
 import random
 import os
 import time
+import pyfiglet
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -79,11 +80,8 @@ def get_user_choice():
 
 
 def welcome():
-    print('Welcome to the game')
-    print('  Instruction 1')
-    print('  Instruction 2')
-    print('  Instruction 3')
-    print('  Instruction 3')
+    print(pyfiglet.figlet_format(
+            "Rock, Paper, Scissors", justify="center", width=80))
     time.sleep(3)
     os.system('clear')
 
