@@ -80,15 +80,32 @@ def get_user_choice():
             print('Please enter "1", "2" or "3"')
     return user_play
 
+class Game:
+    """
+    This class is responsible for controlling the flow of the game. 
+    """
 
-def welcome():
-    print(pyfiglet.figlet_format(
+    def __init__(self):
+        self.username = ""
+        
+
+    def welcome(self):
+        print(pyfiglet.figlet_format(
             "Rock, Paper, Scissors", justify="center", width=80))
-    print(
-            Fore.CYAN + Style.BRIGHT +
+        print(
+            Fore.GREEN + Style.BRIGHT +
             "Can you beat the computer?\n".center(80))
-    time.sleep(3)
-    os.system('clear')
+        while True:
+            self.username = input(
+                "Please enter your name to begin.\n").strip().capitalize()
+
+            if len(self.username.strip()) == 0:
+                print(f"{Fore.RED}Username must contain letters or numbers.\n")
+            else:
+                break
+        print(f"{Fore.GREEN}\nHello {self.username}, welcome to Word-PY.\n")
+        time.sleep(3)
+        os.system('clear')
 
 
 
