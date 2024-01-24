@@ -83,14 +83,16 @@ def get_user_choice():
 
 def welcome():
     print(pyfiglet.figlet_format(
-            "Rock, Paper, Scissors", justify="center", width=80))
+            "Rock Paper Scissors", justify="center", width=80))
     print(
             Fore.GREEN + Style.BRIGHT +
             "Can you beat the computer?\n".center(80))
     username = input(
             Fore.MAGENTA + Style.BRIGHT +
-            "Please enter your name to begin.\n").strip().capitalize() + Style.RESET_ALL
-    print("Hello " + username)
+            "Please enter your name to begin.\n").strip().capitalize()
+    print(
+        Fore.GREEN + Style.BRIGHT +
+        "Hello " + username + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
 
