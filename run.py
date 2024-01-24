@@ -5,6 +5,8 @@ import random
 import os
 import time
 import pyfiglet
+import colorama
+from colorama import Fore, Style
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
