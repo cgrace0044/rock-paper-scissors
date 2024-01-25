@@ -101,8 +101,8 @@ def main():
         player_one_hand = get_user_choice()
         player_two_hand = get_random_hand()
 
-        print(Fore.MAGENTA + Style.BRIGHT + f"Round {round} - Player one has produced: {player_one_hand}")
-        print(Fore.MAGENTA + Style.BRIGHT +f"Round {round} - Player two has produced: {player_two_hand}")
+        print(f"Round {round} - Player one has produced: {player_one_hand}")
+        print(f"Round {round} - Player two has produced: {player_two_hand}")
 
         result = decide_who_wins(player_one_hand, player_two_hand)
         if result == Result.draw:
