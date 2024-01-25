@@ -1,11 +1,11 @@
-import gspread
-from google.oauth2.service_account import Credentials
 import enum
 import random
 import os
 import time
+
+import gspread
+from google.oauth2.service_account import Credentials
 import pyfiglet
-import colorama
 from colorama import Fore, Style
 
 SCOPE = [
@@ -25,7 +25,6 @@ SCOPE = [
 
 # print(data)
 
-
 class Result(enum.Enum):
     player_one_wins = enum.auto()
     player_two_wins = enum.auto()
@@ -41,6 +40,7 @@ class Hand(int, enum.Enum):
 def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
     if player_one_hand == player_two_hand:
         return Result.draw
+
     elif player_one_hand == Hand.paper:
         if player_two_hand == Hand.rock:
             return Result.player_one_wins
@@ -65,7 +65,7 @@ def get_random_hand() -> Hand:
 
 def get_user_choice() -> Hand:
     while True:
-        user_choice = input("Select your play: '1' Rock, '2' Scissors, '3' Paper: ")
+        user_choice = input("Select your play: '1' Paper, '2' Rock, '3' Scissors: ")
         try:
             user_play = Hand(int(user_choice))
             return user_play
@@ -82,12 +82,13 @@ def welcome():
             "Can you beat the computer?\n".center(80))
     username = input(
             Fore.MAGENTA + Style.BRIGHT +
-            "Please enter your name to begin.\n").strip().capitalize()
+            "Please enter your name to begin: ").strip().capitalize()
     print(
         Fore.GREEN + Style.BRIGHT +
-        "Hello " + username + Style.RESET_ALL)
+        f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
+
 
 def main():
     # while the game is not finished:
@@ -109,7 +110,7 @@ def main():
             continue
 
         game_is_finished = True
-        winner = "player1" if result.player_one_wins else "player2"
+        winner = "player1" if result == Result.player_one_wins else "player2"
         print(f"This game was won by {winner} in round {round}")
 
 
