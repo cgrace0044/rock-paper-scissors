@@ -32,10 +32,10 @@ class Result(enum.Enum):
     draw = enum.auto()
 
 
-class Hand(enum.Enum):
-    paper = enum.auto()
-    rock = enum.auto()
-    scissors = enum.auto()
+class Hand(int, enum.Enum):
+    paper = 1
+    rock = 2
+    scissors = 3
 
 
 def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
@@ -63,22 +63,15 @@ def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
 def get_random_hand() -> Hand:
     return random.choice([Hand.paper, Hand.scissors, Hand.rock])
 
-def get_user_choice():
-    input_valid = False
-    user_play = ''
-    while input_valid is False:
-        user_choice = input("Select your play: '1' Rock, '2' Scissors, '3' Paper : ")
-        if user_choice in ['1', '2', '3']: 
-            input_valid = True
-            if user_choice == '1':
-                user_play = Hand.rock
-            if user_choice == '2':
-                user_play = Hand.scissors
-            if user_choice == '3':
-                user_play = Hand.paper
-        else:
+def get_user_choice() -> Hand:
+    while True:
+        user_choice = input("Select your play: '1' Rock, '2' Scissors, '3' Paper: ")
+        try:
+            user_play = Hand(int(user_choice))
+            return user_play
+        except ValueError:
             print('Please enter "1", "2" or "3"')
-    return user_play
+            continue
 
 
 def welcome():
@@ -95,47 +88,6 @@ def welcome():
         "Hello " + username + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
-    menu()
-
-def menu():
-    """
-    play game or view instructions screen
-    """
-    print('Please choose from the following options:\n')
-    user_option = input(
-        f"{Fore.CYAN}P - PLAY\nI - INSTRUCTIONS{Fore.RESET}\n"
-        ).strip().lower()
-
-    if user_option == "p":
-            main()
-
-    elif user_option == "i":
-        #  Credit: https://www.asciiart.eu/art-and-design/borders
-        intro_message = """
-             __| |____________________________________________| |__
-            (__   ____________________________________________   __)
-               | |                                            | |
-               | |               How to Play                  | |
-               | |                                            | |
-               | |    Play Rock, Paper, Scissors against      | |
-               | |               the computer.                | |
-               | |                                            | |
-               | | Press 1 for rock, 2 for Scissors and 3 for | |
-               | |                  paper.                    | |
-               | |                                            | |
-               | |            Rock beats Scissors             | |
-               | |            Scissors beats Paper            | |
-               | |              Paper beats Rock              | |
-               | |                                            | |
-               | |         Can you beat the computer?         | |
-             __| |____________________________________________| |__
-            (__   ____________________________________________   __)
-               | |                                            | |
-            """
-        print(intro_message)
-    else:
-            print(Fore.RED + "Not a valid option\n")
-            self.menu()
 
 def main():
     # while the game is not finished:
@@ -155,7 +107,7 @@ def main():
         if result == Result.draw:
             round += 1
             continue
-        print(f'result : {result}')
+
         game_is_finished = True
         winner = "player1" if result.player_one_wins else "player2"
         print(f"This game was won by {winner} in round {round}")
