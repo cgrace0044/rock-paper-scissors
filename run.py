@@ -100,6 +100,9 @@ def welcome():
         game()
     elif menu_option == "2":
         instructions()
+    else:
+        print('please select 1 or 2')
+        instructions()
 
 def instructions():
     rules = """
