@@ -75,6 +75,10 @@ def get_user_choice() -> Hand:
 
 
 def welcome():
+    """
+    Display name of game and ask for username.
+    Greet the user by their username.
+    """
     print(pyfiglet.figlet_format(
             "Rock Paper Scissors", justify="center", width=80))
     print(
@@ -88,13 +92,54 @@ def welcome():
         f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
+    print('Please choose from the following options:\n')
+    menu_option = input(
+        f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n"
+        ).strip()
+    if menu_option == "1":
+        game()
+    elif menu_option == "2":
+        instructions()
 
+def instructions():
+    rules = """
+                  ____________________________________________ 
+               | |                                            | |
+               | |               Instructions                 | |
+               | |                                            | |
+               | |         Play Rock Paper Scissors!          | |
+               | |                                            | |
+               | |            Rock beats Scissors             | |
+               | |           Scissors beats Paper             | |
+               | |              Paper beats Rock              | |
+               | |                                            | |
+               | |        Can you beat the computer?          | |
+               | |                                            | |
+               | |                                            | |
+               | |                                            | |
+               | |                                            | |
+               | |____________________________________________| |
+    """
+    print(rules)
+    instructions_option = input(
+        f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n"
+        ).strip()
+    if instructions_option == "1":
+        game()
+    elif instructions_option == "2":
+        gameover()
 
-def main():
+def gameover():
+    os.system('clear')
+    print(f"gameover")
+    time.sleep(3)
+    os.system('clear')
+    welcome()
+
+def game():
     # while the game is not finished:
     # each opponent produces one of rock, paper or scissors
     # the game logic decides who wins or if its a draw
-    welcome()
     game_is_finished = False
     round = 1
     while not game_is_finished:
@@ -113,6 +158,10 @@ def main():
         winner = "player1" if result == Result.player_one_wins else "player2"
         print(Fore.WHITE + Style.BRIGHT + f"This game was won by {winner} in round {round}")
 
+def main():
+    
+    welcome()
+    game()
 
 if __name__ == "__main__":
     main()
