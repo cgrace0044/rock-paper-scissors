@@ -102,6 +102,7 @@ def welcome():
         instructions()
     else:
         print('please select 1 or 2')
+        time.sleep(2)
         instructions()
 
 def instructions():
