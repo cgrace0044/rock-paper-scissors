@@ -125,13 +125,16 @@ def instructions():
         f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n"
         ).strip()
     if instructions_option == "1":
+        os.system('clear')
         game()
     elif instructions_option == "2":
+        os.system('clear')
         gameover()
 
 def gameover():
     os.system('clear')
-    print(f"gameover")
+    print(pyfiglet.figlet_format(
+            "Gameover", justify="center", width=80))
     time.sleep(3)
     os.system('clear')
     welcome()
