@@ -92,6 +92,9 @@ def welcome():
         f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
+    menu()
+
+def menu():
     print('Please choose from the following options:\n')
     menu_option = input(
         f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n"
@@ -103,7 +106,7 @@ def welcome():
     else:
         print('please select 1 or 2')
         time.sleep(2)
-        welcome()
+        menu()
 
 def instructions():
     rules = """
