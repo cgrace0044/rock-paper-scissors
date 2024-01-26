@@ -84,6 +84,7 @@ def welcome():
     print(
             Fore.GREEN + Style.BRIGHT +
             "Can you beat the computer?\n".center(80))
+    global username
     username = input(
             Fore.MAGENTA + Style.BRIGHT +
             "Please enter your name to begin: ").strip().capitalize()
@@ -160,8 +161,8 @@ def game():
         player_one_hand = get_user_choice()
         player_two_hand = get_random_hand()
 
-        print(f"Round {round} - Player one has produced: {player_one_hand}")
-        print(f"Round {round} - Player two has produced: {player_two_hand}")
+        print(Fore.MAGENTA + Style.BRIGHT + f"Round {round} - {username} has produced: {player_one_hand}")
+        print(Fore.MAGENTA + Style.BRIGHT + f"Round {round} - Computer has produced: {player_two_hand}\n")
 
         result = decide_who_wins(player_one_hand, player_two_hand)
         if result == Result.draw:
@@ -169,8 +170,8 @@ def game():
             continue
 
         game_is_finished = True
-        winner = "player1" if result == Result.player_one_wins else "player2"
-        print(Fore.WHITE + Style.BRIGHT + f"This game was won by {winner} in round {round}")
+        winner = f"{username}" if result == Result.player_one_wins else "Computer"
+        print(Fore.WHITE + Style.BRIGHT + f"This game was won by {winner} in round {round}\n")
 
 def main():
     
