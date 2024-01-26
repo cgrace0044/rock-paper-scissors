@@ -103,7 +103,7 @@ def welcome():
     else:
         print('please select 1 or 2')
         time.sleep(2)
-        instructions()
+        welcome()
 
 def instructions():
     rules = """
@@ -134,6 +134,10 @@ def instructions():
     elif instructions_option == "2":
         os.system('clear')
         gameover()
+    else:
+        print('please select 1 or 2')
+        time.sleep(2)
+        instructions()
 
 def gameover():
     os.system('clear')
