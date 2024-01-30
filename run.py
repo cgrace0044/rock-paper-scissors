@@ -26,6 +26,15 @@ SCOPE = [
 # print(data)
 
 
+class Context:
+    """Game context"""
+    def __init__(self, username, total_games=5):
+        self.username = username
+        self.total_games = total_games
+        self.current_game = 1
+        self.score = 0
+
+
 class Result(enum.Enum):
     player_one_wins = enum.auto()
     player_two_wins = enum.auto()
@@ -80,11 +89,11 @@ def get_user_choice() -> Hand:
             continue
 
 
-def clear_screen():
+def clear_screen() -> None:
     os.system("clear")
 
 
-def main():
+def main() -> None:
     """
     Display name of game and ask for username.
     Greet the user by their username.
@@ -96,26 +105,28 @@ def main():
         .strip()
         .capitalize()
     )
-    print(Fore.GREEN + Style.BRIGHT + f"Hello {username}" + Style.RESET_ALL)
+    context = Context(username)
+
+    print(Fore.GREEN + Style.BRIGHT + f"Hello {context.username}" + Style.RESET_ALL)
     time.sleep(3)
     clear_screen()
-    show_menu(username)
+    show_menu(context)
 
 
-def show_menu(username):
+def show_menu(context: Context) -> None:
     print("Please choose from the following options:\n")
     menu_option = input(f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n").strip()
     if menu_option == "1":
-        run_game(username)
+        run_game(context)
     elif menu_option == "2":
-        show_instructions(username)
+        show_instructions(context)
     else:
         print("please select 1 or 2")
         time.sleep(2)
-        show_menu(username)
+        show_menu(context)
 
 
-def show_instructions(username):
+def show_instructions(context: Context) -> None:
     rules = """
                   ____________________________________________ 
                | |                                            | |
@@ -138,54 +149,75 @@ def show_instructions(username):
     instructions_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
     if instructions_option == "1":
         clear_screen()
-        run_game(username)
+        run_game(context)
     elif instructions_option == "2":
         clear_screen()
         gameover()
     else:
         print("please select 1 or 2")
         time.sleep(2)
-        show_instructions(username)
+        show_instructions(context)
 
 
-def gameover():
+def gameover() -> None:
     clear_screen()
     print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
 
 
-def run_game(username):
+def add_new_entry_hof(context: Context) -> None:
+    # initialize API/gsheet object, whatever
+    # prepare row to add with user info 
+    # add row
+    print("implement me ya fooker")
+
+
+def run_game(context: Context) -> None:
     # while the game is not finished:
     # each opponent produces one of rock, paper or scissors
     # the game logic decides who wins or if its a draw
-    game_is_finished = False
-    round = 1
-    while not game_is_finished:
-        player_one_hand = get_user_choice()
-        player_two_hand = get_random_hand()
+    while context.current_game < context.total_games + 1:
+        game_is_finished = False
+        round = 1
+        while not game_is_finished:
+            print(
+                Fore.MAGENTA
+                + Style.BRIGHT
+                + f"Game {context.current_game}"
+            )
 
-        print(
-            Fore.MAGENTA
-            + Style.BRIGHT
-            + f"Round {round} - {username} has produced: {player_one_hand}"
-        )
-        print(
-            Fore.MAGENTA
-            + Style.BRIGHT
-            + f"Round {round} - Computer has produced: {player_two_hand}\n"
-        )
+            player_one_hand = get_user_choice()
+            player_two_hand = get_random_hand()
 
-        result = decide_who_wins(player_one_hand, player_two_hand)
-        if result == Result.draw:
-            round += 1
-            continue
+            print(
+                Fore.MAGENTA
+                + Style.BRIGHT
+                + f"Round {round} - {context.username} has produced: {player_one_hand}"
+            )
+            print(
+                Fore.MAGENTA
+                + Style.BRIGHT
+                + f"Round {round} - Computer has produced: {player_two_hand}\n"
+            )
 
-        game_is_finished = True
-        winner = f"{username}" if result == Result.player_one_wins else "Computer"
-        print(
-            Fore.WHITE
-            + Style.BRIGHT
-            + f"This game was won by {winner} in round {round}\n"
-        )
+            result = decide_who_wins(player_one_hand, player_two_hand)
+            if result == Result.draw:
+                round += 1
+                continue
+
+            
+            winner = f"{context.username}" if result == Result.player_one_wins else "Computer"
+            print(
+                Fore.WHITE
+                + Style.BRIGHT
+                + f"This game was won by {winner} in round {round}\n"
+            )
+            if result == Result.player_one_wins:
+                context.score += 1
+            
+            game_is_finished = True
+            context.current_game += 1
+    
+    print(f"{context.username} has a total score of {context.score} out of {context.total_games}")
 
 
 if __name__ == "__main__":
