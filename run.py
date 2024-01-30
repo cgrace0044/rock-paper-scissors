@@ -91,7 +91,6 @@ def main():
     """
     print(pyfiglet.figlet_format("Rock Paper Scissors", justify="center", width=80))
     print(Fore.GREEN + Style.BRIGHT + "Can you beat the computer?\n".center(80))
-    global username
     username = (
         input(Fore.MAGENTA + Style.BRIGHT + "Please enter your name to begin: ")
         .strip()
@@ -100,23 +99,23 @@ def main():
     print(Fore.GREEN + Style.BRIGHT + f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
     clear_screen()
-    show_menu()
+    show_menu(username)
 
 
-def show_menu():
+def show_menu(username):
     print("Please choose from the following options:\n")
     menu_option = input(f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n").strip()
     if menu_option == "1":
-        run_game()
+        run_game(username)
     elif menu_option == "2":
-        show_instructions()
+        show_instructions(username)
     else:
         print("please select 1 or 2")
         time.sleep(2)
-        show_menu()
+        show_menu(username)
 
 
-def show_instructions():
+def show_instructions(username):
     rules = """
                   ____________________________________________ 
                | |                                            | |
@@ -139,14 +138,14 @@ def show_instructions():
     instructions_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
     if instructions_option == "1":
         clear_screen()
-        run_game()
+        run_game(username)
     elif instructions_option == "2":
         clear_screen()
         gameover()
     else:
         print("please select 1 or 2")
         time.sleep(2)
-        show_instructions()
+        show_instructions(username)
 
 
 def gameover():
@@ -154,7 +153,7 @@ def gameover():
     print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
 
 
-def run_game():
+def run_game(username):
     # while the game is not finished:
     # each opponent produces one of rock, paper or scissors
     # the game logic decides who wins or if its a draw
