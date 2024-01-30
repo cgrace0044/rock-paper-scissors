@@ -14,16 +14,16 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-# CREDS = Credentials.from_service_account_file('creds.json')
-# SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-# GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-# SHEET = GSPREAD_CLIENT.open('love_sandwiches')
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('rock_paper_scissors')
 
-# sales = SHEET.worksheet('sales')
+leaderboard = SHEET.worksheet('leaderboard')
 
-# data = sales.get_all_values()
+data = leaderboard.get_all_values()
 
-# print(data)
+print(data)
 
 
 class Context:
