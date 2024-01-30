@@ -84,7 +84,7 @@ def clear_screen():
     os.system("clear")
 
 
-def show_welcome():
+def main():
     """
     Display name of game and ask for username.
     Greet the user by their username.
@@ -152,9 +152,6 @@ def show_instructions():
 def gameover():
     clear_screen()
     print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
-    time.sleep(3)
-    clear_screen()
-    show_welcome()
 
 
 def run_game():
@@ -190,11 +187,6 @@ def run_game():
             + Style.BRIGHT
             + f"This game was won by {winner} in round {round}\n"
         )
-
-
-def main():
-    show_welcome()
-    run_game()
 
 
 if __name__ == "__main__":
