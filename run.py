@@ -80,6 +80,10 @@ def get_user_choice() -> Hand:
             continue
 
 
+def clear_screen():
+    os.system("clear")
+
+
 def show_welcome():
     """
     Display name of game and ask for username.
@@ -95,7 +99,7 @@ def show_welcome():
     )
     print(Fore.GREEN + Style.BRIGHT + f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
-    os.system("clear")
+    clear_screen()
     show_menu()
 
 
@@ -134,10 +138,10 @@ def show_instructions():
     print(rules)
     instructions_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
     if instructions_option == "1":
-        os.system("clear")
+        clear_screen()
         run_game()
     elif instructions_option == "2":
-        os.system("clear")
+        clear_screen()
         gameover()
     else:
         print("please select 1 or 2")
@@ -146,10 +150,10 @@ def show_instructions():
 
 
 def gameover():
-    os.system("clear")
+    clear_screen()
     print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
     time.sleep(3)
-    os.system("clear")
+    clear_screen()
     show_welcome()
 
 
