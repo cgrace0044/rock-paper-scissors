@@ -11,8 +11,8 @@ from colorama import Fore, Style
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
+    "https://www.googleapis.com/auth/drive",
+]
 
 # CREDS = Credentials.from_service_account_file('creds.json')
 # SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -24,6 +24,7 @@ SCOPE = [
 # data = sales.get_all_values()
 
 # print(data)
+
 
 class Result(enum.Enum):
     player_one_wins = enum.auto()
@@ -63,9 +64,14 @@ def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
 def get_random_hand() -> Hand:
     return random.choice([Hand.paper, Hand.scissors, Hand.rock])
 
+
 def get_user_choice() -> Hand:
     while True:
-        user_choice = input(Fore.CYAN + Style.BRIGHT +"Select your play: '1' Paper, '2' Rock, '3' Scissors: ")
+        user_choice = input(
+            Fore.CYAN
+            + Style.BRIGHT
+            + "Select your play: '1' Paper, '2' Rock, '3' Scissors: "
+        )
         try:
             user_play = Hand(int(user_choice))
             return user_play
@@ -79,33 +85,29 @@ def show_welcome():
     Display name of game and ask for username.
     Greet the user by their username.
     """
-    print(pyfiglet.figlet_format(
-            "Rock Paper Scissors", justify="center", width=80))
-    print(
-            Fore.GREEN + Style.BRIGHT +
-            "Can you beat the computer?\n".center(80))
+    print(pyfiglet.figlet_format("Rock Paper Scissors", justify="center", width=80))
+    print(Fore.GREEN + Style.BRIGHT + "Can you beat the computer?\n".center(80))
     global username
-    username = input(
-            Fore.MAGENTA + Style.BRIGHT +
-            "Please enter your name to begin: ").strip().capitalize()
-    print(
-        Fore.GREEN + Style.BRIGHT +
-        f"Hello {username}" + Style.RESET_ALL)
+    username = (
+        input(Fore.MAGENTA + Style.BRIGHT + "Please enter your name to begin: ")
+        .strip()
+        .capitalize()
+    )
+    print(Fore.GREEN + Style.BRIGHT + f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
-    os.system('clear')
+    os.system("clear")
     show_menu()
 
+
 def show_menu():
-    print('Please choose from the following options:\n')
-    menu_option = input(
-        f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n"
-        ).strip()
+    print("Please choose from the following options:\n")
+    menu_option = input(f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n").strip()
     if menu_option == "1":
         run_game()
     elif menu_option == "2":
         show_instructions()
     else:
-        print('please select 1 or 2')
+        print("please select 1 or 2")
         time.sleep(2)
         show_menu()
 
@@ -130,27 +132,26 @@ def show_instructions():
                | |____________________________________________| |
     """
     print(rules)
-    instructions_option = input(
-        f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n"
-        ).strip()
+    instructions_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
     if instructions_option == "1":
-        os.system('clear')
+        os.system("clear")
         run_game()
     elif instructions_option == "2":
-        os.system('clear')
+        os.system("clear")
         gameover()
     else:
-        print('please select 1 or 2')
+        print("please select 1 or 2")
         time.sleep(2)
         show_instructions()
 
+
 def gameover():
-    os.system('clear')
-    print(pyfiglet.figlet_format(
-            "Gameover", justify="center", width=80))
+    os.system("clear")
+    print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
     time.sleep(3)
-    os.system('clear')
+    os.system("clear")
     show_welcome()
+
 
 def run_game():
     # while the game is not finished:
@@ -162,8 +163,16 @@ def run_game():
         player_one_hand = get_user_choice()
         player_two_hand = get_random_hand()
 
-        print(Fore.MAGENTA + Style.BRIGHT + f"Round {round} - {username} has produced: {player_one_hand}")
-        print(Fore.MAGENTA + Style.BRIGHT + f"Round {round} - Computer has produced: {player_two_hand}\n")
+        print(
+            Fore.MAGENTA
+            + Style.BRIGHT
+            + f"Round {round} - {username} has produced: {player_one_hand}"
+        )
+        print(
+            Fore.MAGENTA
+            + Style.BRIGHT
+            + f"Round {round} - Computer has produced: {player_two_hand}\n"
+        )
 
         result = decide_who_wins(player_one_hand, player_two_hand)
         if result == Result.draw:
@@ -172,7 +181,12 @@ def run_game():
 
         game_is_finished = True
         winner = f"{username}" if result == Result.player_one_wins else "Computer"
-        print(Fore.WHITE + Style.BRIGHT + f"This game was won by {winner} in round {round}\n")
+        print(
+            Fore.WHITE
+            + Style.BRIGHT
+            + f"This game was won by {winner} in round {round}\n"
+        )
+
 
 def main():
     show_welcome()
