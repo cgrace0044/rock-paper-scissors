@@ -57,7 +57,7 @@ def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
         if player_two_hand == Hand.rock:
             return Result.player_two_wins
     else:
-        raise ValueError(f"Unknown combination of hands")
+        raise ValueError("Unknown combination of hands")
 
 
 def get_random_hand() -> Hand:
@@ -74,7 +74,7 @@ def get_user_choice() -> Hand:
             continue
 
 
-def welcome():
+def show_welcome():
     """
     Display name of game and ask for username.
     Greet the user by their username.
@@ -93,23 +93,24 @@ def welcome():
         f"Hello {username}" + Style.RESET_ALL)
     time.sleep(3)
     os.system('clear')
-    menu()
+    show_menu()
 
-def menu():
+def show_menu():
     print('Please choose from the following options:\n')
     menu_option = input(
         f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n"
         ).strip()
     if menu_option == "1":
-        game()
+        run_game()
     elif menu_option == "2":
-        instructions()
+        show_instructions()
     else:
         print('please select 1 or 2')
         time.sleep(2)
-        menu()
+        show_menu()
 
-def instructions():
+
+def show_instructions():
     rules = """
                   ____________________________________________ 
                | |                                            | |
@@ -134,14 +135,14 @@ def instructions():
         ).strip()
     if instructions_option == "1":
         os.system('clear')
-        game()
+        run_game()
     elif instructions_option == "2":
         os.system('clear')
         gameover()
     else:
         print('please select 1 or 2')
         time.sleep(2)
-        instructions()
+        show_instructions()
 
 def gameover():
     os.system('clear')
@@ -149,9 +150,9 @@ def gameover():
             "Gameover", justify="center", width=80))
     time.sleep(3)
     os.system('clear')
-    welcome()
+    show_welcome()
 
-def game():
+def run_game():
     # while the game is not finished:
     # each opponent produces one of rock, paper or scissors
     # the game logic decides who wins or if its a draw
@@ -174,9 +175,9 @@ def game():
         print(Fore.WHITE + Style.BRIGHT + f"This game was won by {winner} in round {round}\n")
 
 def main():
-    
-    welcome()
-    game()
+    show_welcome()
+    run_game()
+
 
 if __name__ == "__main__":
     main()
