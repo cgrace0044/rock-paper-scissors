@@ -187,7 +187,7 @@ def add_new_entry_leaderboard(context: Context) -> None:
     """
     today = date.today()
     date_format = today.strftime("%d/%m/%Y")
-    print("Updating leaderboard...\n")
+    print(Fore.GREEN + Style.BRIGHT + "Updating leaderboard...\n")
     LEADERBOARD.append_row([context.username, context.score, date_format])
     # now sort by score
     LEADERBOARD.sort((2, "des"))
@@ -198,6 +198,7 @@ def run_game(context: Context) -> None:
     # while the game is not finished:
     # each opponent produces one of rock, paper or scissors
     # the game logic decides who wins or if its a draw
+    clear_screen()
     while context.current_game < context.total_games + 1:
         game_is_finished = False
         round = 1
@@ -240,7 +241,9 @@ def run_game(context: Context) -> None:
             context.current_game += 1
 
     print(
-        f"{context.username} has a total score of {context.score} out of {context.total_games}"
+        Fore.YELLOW
+        + Style.BRIGHT
+        + f"{context.username} has a total score of {context.score} out of {context.total_games}\n"
     )
     add_new_entry_leaderboard(context)
 
