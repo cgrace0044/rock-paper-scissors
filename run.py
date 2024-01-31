@@ -247,26 +247,26 @@ def run_game(context: Context) -> None:
                 if result == Result.player_one_wins
                 else "Computer"
             )
-            print(f"\n{Fore.WHITE}=======================================\n")
+            print(f"{Fore.WHITE}=======================================")
             print(
                 Fore.WHITE
                 + Style.BRIGHT
-                + f"This game was won by {winner} in round {round}\n"
+                + f"This game was won by {winner} in round {round}"
             )
-            print(f"\n{Fore.WHITE}=======================================\n")
+            print(f"{Fore.WHITE}=======================================\n")
             if result == Result.player_one_wins:
                 context.score += 1
 
             game_is_finished = True
             context.current_game += 1
 
-    print(f"\n{Fore.WHITE}=======================================\n")
+    print(f"\n{Fore.YELLOW}=======================================\n")
     print(
         Fore.YELLOW
         + Style.BRIGHT
         + f"{context.username} has a total score of {context.score} out of {context.total_games}\n"
     )
-    print(f"\n{Fore.WHITE}=======================================\n")
+    print(f"{Fore.YELLOW}=======================================\n")
     add_new_entry_leaderboard(context)
 
 
