@@ -3,6 +3,7 @@ import enum
 import random
 import os
 import time
+import warnings
 
 import gspread
 from google.oauth2.service_account import Credentials
@@ -207,8 +208,11 @@ def add_new_entry_leaderboard(context: Context) -> None:
     date_format = today.strftime("%d/%m/%Y")
     print(Fore.GREEN + Style.BRIGHT + "Updating leaderboard...\n")
     LEADERBOARD.append_row([context.username, context.score, date_format])
-    # now sort by score
-    LEADERBOARD.sort((2, "des"))
+    # supress future deprecation warning for gsheet >= 6.0
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        # now sort by score
+        LEADERBOARD.sort((2, "des"))
     print(Fore.GREEN + Style.BRIGHT + "Leaderboard Updated.\n")
 
 
@@ -268,6 +272,18 @@ def run_game(context: Context) -> None:
     )
     print(f"{Fore.YELLOW}=======================================\n")
     add_new_entry_leaderboard(context)
+    
+    over_option = input(
+        f"{Fore.GREEN}1 - START AGAIN \n2 - QUIT{Fore.RESET}\n"
+    ).strip()
+    if over_option == "1":
+        clear_screen()
+        main()
+    elif over_option == "2":
+        clear_screen()
+        gameover()
+    else:
+        print("please select 1 or 2")
 
 
 if __name__ == "__main__":
