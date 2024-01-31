@@ -97,7 +97,7 @@ def main() -> None:
     print(pyfiglet.figlet_format("Rock Paper Scissors", justify="center", width=80))
     print(Fore.GREEN + Style.BRIGHT + "Can you beat the computer?\n".center(80))
     username = (
-        input(Fore.MAGENTA + Style.BRIGHT + "Please enter your name to begin: ")
+        input(Fore.YELLOW + Style.BRIGHT + "Please enter your name to begin: ")
         .strip()
         .capitalize()
     )
