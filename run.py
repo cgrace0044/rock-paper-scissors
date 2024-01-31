@@ -18,7 +18,7 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open("rock_paper_scissors")
+LEADERBOARD = GSPREAD_CLIENT.open("rock_paper_scissors").worksheet("leaderboard")
 
 
 class Context:
@@ -111,11 +111,15 @@ def main() -> None:
 
 def show_menu(context: Context) -> None:
     print("Please choose from the following options:\n")
-    menu_option = input(f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS{Fore.RESET}\n").strip()
+    menu_option = input(
+        f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS\n3 - LEADERBOARD{Fore.RESET}\n"
+    ).strip()
     if menu_option == "1":
         run_game(context)
     elif menu_option == "2":
         show_instructions(context)
+    elif menu_option == "3":
+        show_leaderboard(context)
     else:
         print("please select 1 or 2")
         time.sleep(2)
@@ -155,6 +159,12 @@ def show_instructions(context: Context) -> None:
         show_instructions(context)
 
 
+def show_leaderboard(context: Context) -> None:
+    clear_screen()
+    for name, score, date in LEADERBOARD.get_all_values()[1:]:
+        print(f"{name} scored {score} on {date}")
+
+
 def gameover() -> None:
     clear_screen()
     print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
@@ -164,13 +174,12 @@ def add_new_entry_leaderboard(context: Context) -> None:
     """
     Add name, score and date to row in leaderboard Google Sheet.
     """
-    leaderboard = SHEET.worksheet("leaderboard")
     today = date.today()
     date_format = today.strftime("%d/%m/%Y")
     print("Updating leaderboard...\n")
-    leaderboard.append_row([context.username, context.score, date_format])
+    LEADERBOARD.append_row([context.username, context.score, date_format])
     # now sort by score
-    leaderboard.sort((2, "des"))
+    LEADERBOARD.sort((2, "des"))
     print(Fore.GREEN + Style.BRIGHT + "Leaderboard Updated.\n")
 
 
