@@ -18,7 +18,9 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-LEADERBOARD = GSPREAD_CLIENT.open("rock_paper_scissors").worksheet("leaderboard")
+LEADERBOARD = GSPREAD_CLIENT.open("rock_paper_scissors").worksheet(
+    "leaderboard"
+)
 
 
 class Context:
@@ -94,8 +96,14 @@ def main() -> None:
     Display name of game and ask for username.
     Greet the user by their username.
     """
-    print(pyfiglet.figlet_format("Rock Paper Scissors", justify="center", width=80))
-    print(Fore.GREEN + Style.BRIGHT + "Can you beat the computer?\n".center(80))
+    print(
+        pyfiglet.figlet_format(
+            "Rock Paper Scissors", justify="center", width=80
+        )
+    )
+    print(
+        Fore.GREEN + Style.BRIGHT + "Can you beat the computer?\n".center(80)
+    )
     username = (
         input(Fore.YELLOW + Style.BRIGHT + "Please enter your name to begin: ")
         .strip()
@@ -103,7 +111,12 @@ def main() -> None:
     )
     context = Context(username)
 
-    print(Fore.GREEN + Style.BRIGHT + f"Hello {context.username}" + Style.RESET_ALL)
+    print(
+        Fore.GREEN
+        + Style.BRIGHT
+        + f"Hello {context.username}"
+        + Style.RESET_ALL
+    )
     time.sleep(3)
     clear_screen()
     show_menu(context)
@@ -128,25 +141,27 @@ def show_menu(context: Context) -> None:
 
 def show_instructions(context: Context) -> None:
     rules = """
-                  ____________________________________________ 
-                 |                                            | 
-                 |               Instructions                 | 
-                 |                                            | 
-                 |         Play Rock Paper Scissors!          | 
-                 |                                            | 
-                 |            Rock beats Scissors             | 
-                 |           Scissors beats Paper             | 
-                 |              Paper beats Rock              | 
-                 |                                            | 
-                 |        Can you beat the computer?          | 
-                 |   How many games can you win out of 5?     | 
-                 |                                            | 
-                 |        Press 1 to Play or 2 to Quit        | 
-                 |                                            | 
-                 |____________________________________________| 
+                  ____________________________________________
+                 |                                            |
+                 |               Instructions                 |
+                 |                                            |
+                 |         Play Rock Paper Scissors!          |
+                 |                                            |
+                 |            Rock beats Scissors             |
+                 |           Scissors beats Paper             |
+                 |              Paper beats Rock              |
+                 |                                            |
+                 |        Can you beat the computer?          |
+                 |   How many games can you win out of 5?     |
+                 |                                            |
+                 |        Press 1 to Play or 2 to Quit        |
+                 |                                            |
+                 |____________________________________________|
     """
     print(rules)
-    instructions_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
+    instructions_option = input(
+        f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n"
+    ).strip()
     if instructions_option == "1":
         clear_screen()
         run_game(context)
@@ -163,7 +178,9 @@ def show_leaderboard(context: Context) -> None:
     clear_screen()
     for name, score, date in LEADERBOARD.get_all_values()[1:]:
         print(f"{name} scored {score} on {date}")
-    leaderboard_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
+    leaderboard_option = input(
+        f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n"
+    ).strip()
     if leaderboard_option == "1":
         clear_screen()
         run_game(context)
