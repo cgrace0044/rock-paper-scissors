@@ -1,3 +1,4 @@
+from datetime import date
 import enum
 import random
 import os
@@ -14,14 +15,15 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-CREDS = Credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('rock_paper_scissors')
+SHEET = GSPREAD_CLIENT.open("rock_paper_scissors")
 
 
 class Context:
     """Game context"""
+
     def __init__(self, username, total_games=5):
         self.username = username
         self.total_games = total_games
@@ -158,11 +160,16 @@ def gameover() -> None:
     print(pyfiglet.figlet_format("Gameover", justify="center", width=80))
 
 
-def add_new_entry_hof(context: Context) -> None:
-    # initialize API/gsheet object, whatever
-    # prepare row to add with user info 
-    # add row
-    print("implement me ya fooker")
+def add_new_entry_leaderboard(context: Context) -> None:
+    """
+    Add name, score and date to row in leaderboard Google Sheet.
+    """
+    leaderboard = SHEET.worksheet("leaderboard")
+    today = date.today()
+    date_format = today.strftime("%d/%m/%Y")
+    print("Updating leaderboard...\n")
+    leaderboard.append_row([context.username, context.score, date_format])
+    print(Fore.GREEN + Style.BRIGHT + "Leaderboard Updated.\n")
 
 
 def run_game(context: Context) -> None:
@@ -173,11 +180,7 @@ def run_game(context: Context) -> None:
         game_is_finished = False
         round = 1
         while not game_is_finished:
-            print(
-                Fore.MAGENTA
-                + Style.BRIGHT
-                + f"Game {context.current_game}"
-            )
+            print(Fore.GREEN + Style.BRIGHT + f"Game {context.current_game}")
 
             player_one_hand = get_user_choice()
             player_two_hand = get_random_hand()
@@ -198,8 +201,11 @@ def run_game(context: Context) -> None:
                 round += 1
                 continue
 
-            
-            winner = f"{context.username}" if result == Result.player_one_wins else "Computer"
+            winner = (
+                f"{context.username}"
+                if result == Result.player_one_wins
+                else "Computer"
+            )
             print(
                 Fore.WHITE
                 + Style.BRIGHT
@@ -207,11 +213,14 @@ def run_game(context: Context) -> None:
             )
             if result == Result.player_one_wins:
                 context.score += 1
-            
+
             game_is_finished = True
             context.current_game += 1
-    
-    print(f"{context.username} has a total score of {context.score} out of {context.total_games}")
+
+    print(
+        f"{context.username} has a total score of {context.score} out of {context.total_games}"
+    )
+    add_new_entry_leaderboard(context)
 
 
 if __name__ == "__main__":
