@@ -169,6 +169,8 @@ def add_new_entry_leaderboard(context: Context) -> None:
     date_format = today.strftime("%d/%m/%Y")
     print("Updating leaderboard...\n")
     leaderboard.append_row([context.username, context.score, date_format])
+    # now sort by score
+    leaderboard.sort((2, "des"))
     print(Fore.GREEN + Style.BRIGHT + "Leaderboard Updated.\n")
 
 
