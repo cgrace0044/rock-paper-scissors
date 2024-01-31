@@ -112,7 +112,7 @@ def main() -> None:
 def show_menu(context: Context) -> None:
     print("Please choose from the following options:\n")
     menu_option = input(
-        f"{Fore.GREEN}1 - PLAY\n2 - INSTRUCTIONS\n3 - LEADERBOARD{Fore.RESET}\n"
+        f"{Fore.GREEN + Style.BRIGHT}1 - PLAY\n2 - INSTRUCTIONS\n3 - LEADERBOARD{Fore.RESET}\n"
     ).strip()
     if menu_option == "1":
         run_game(context)
@@ -129,21 +129,21 @@ def show_menu(context: Context) -> None:
 def show_instructions(context: Context) -> None:
     rules = """
                   ____________________________________________ 
-               | |                                            | |
-               | |               Instructions                 | |
-               | |                                            | |
-               | |         Play Rock Paper Scissors!          | |
-               | |                                            | |
-               | |            Rock beats Scissors             | |
-               | |           Scissors beats Paper             | |
-               | |              Paper beats Rock              | |
-               | |                                            | |
-               | |        Can you beat the computer?          | |
-               | |                                            | |
-               | |                                            | |
-               | |                                            | |
-               | |                                            | |
-               | |____________________________________________| |
+                 |                                            | 
+                 |               Instructions                 | 
+                 |                                            | 
+                 |         Play Rock Paper Scissors!          | 
+                 |                                            | 
+                 |            Rock beats Scissors             | 
+                 |           Scissors beats Paper             | 
+                 |              Paper beats Rock              | 
+                 |                                            | 
+                 |        Can you beat the computer?          | 
+                 |   How many games can you win out of 5?     | 
+                 |                                            | 
+                 |        Press 1 to Play or 2 to Quit        | 
+                 |                                            | 
+                 |____________________________________________| 
     """
     print(rules)
     instructions_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
