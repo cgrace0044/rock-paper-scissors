@@ -163,6 +163,17 @@ def show_leaderboard(context: Context) -> None:
     clear_screen()
     for name, score, date in LEADERBOARD.get_all_values()[1:]:
         print(f"{name} scored {score} on {date}")
+    leaderboard_option = input(f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n").strip()
+    if leaderboard_option == "1":
+        clear_screen()
+        run_game(context)
+    elif leaderboard_option == "2":
+        clear_screen()
+        gameover()
+    else:
+        print("please select 1 or 2")
+        time.sleep(2)
+        show_leaderboard(context)
 
 
 def gameover() -> None:
