@@ -140,6 +140,7 @@ def show_menu(context: Context) -> None:
 
 
 def show_instructions(context: Context) -> None:
+    clear_screen()
     rules = """
                   ____________________________________________
                  |                                            |
