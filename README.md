@@ -58,3 +58,10 @@ ADD LUCID FLOW CHART HERE
 - If the user does not input 1, 2 or 3 they will receive an error message asking them to input a valid option.
 
 ![User Menu](docs/readme_images/options_menu_error_message.webp)
+
+### Instructions
+- If the user presses "2" and enter they will be shown the game instructions. 
+- The instructions are surrounded by a box border to make them clear and easy to read. 
+- From the instructions menu you can either select play by pressing 1 or quit by pressing 2.
+
+![Instructions](docs/readme_images/instructions.webp)
