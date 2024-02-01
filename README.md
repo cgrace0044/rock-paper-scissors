@@ -94,3 +94,15 @@ ADD LUCID FLOW CHART HERE
   - This is printed in yellow to make it stand out:
 
 ![Overall Winner](docs/readme_images/overall_winner.webp)
+
+### Option to Restart or Quit
+- Once the game is over the user is informed that the leaderboard has been updated.
+- They are then given the option to 1. Start Again or 2. Quit
+
+![Restart or Quit](docs/readme_images/restart_or_quit.webp)
+
+- Restarting will bring the user back to the login page.
+- Quitting will bring the user to a gameover screen. 
+
+![Gameover](docs/readme_images/gameover.webp)
+
