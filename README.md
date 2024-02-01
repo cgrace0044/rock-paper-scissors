@@ -66,6 +66,12 @@ ADD LUCID FLOW CHART HERE
 
 ![Instructions](docs/readme_images/instructions.webp)
 
+### Leaderboard
+- If the user presses "3" and enter they will be taken to the leaderboard. 
+- From the leaderboard you can either select play by pressing 1 or quit by pressing 2.
+
+![leaderboard](docs/readme_images/leaderboard.webp)
+
 ### Game Features
 - Once the user selects to play the game, game 1 is launched and the user will be asked to select their hand i.e. Paper, Rock or Scissors:
 
