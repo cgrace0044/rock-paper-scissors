@@ -112,3 +112,11 @@ ADD LUCID FLOW CHART HERE
 
 ![Gameover](docs/readme_images/gameover.webp)
 
+### Leaderboard
+- The Leaderboard feature was created using Google Sheets. The spreadsheet is accessed by the game through the Google Drive and Google Sheets APIs on the Google Cloud Platform.
+
+![leaderboard](docs/readme_images/leaderboard.webp)
+
+- Credentials were generated and provided to allow access from the project to Google Sheets. These were added to the cred.json in the .gitignore file to ensure they weren't pushed to my Github repository. They also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game. 
+- The leaderboard is sorted so that the highest score appears at the top. 
+
