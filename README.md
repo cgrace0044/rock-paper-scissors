@@ -47,4 +47,4 @@ ADD LUCID FLOW CHART HERE
 
 - Once the user enters their name the terminal greets them.
 
-![Username Validation](docs/readme_images/username_validation.png)
+![Username Greeting](docs/readme_images/greeting.webp)
