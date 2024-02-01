@@ -115,8 +115,37 @@ ADD LUCID FLOW CHART HERE
 ### Leaderboard
 - The Leaderboard feature was created using Google Sheets. The spreadsheet is accessed by the game through the Google Drive and Google Sheets APIs on the Google Cloud Platform.
 
-![leaderboard](docs/readme_images/leaderboard.webp)
+![leaderboard](docs/readme_images/leaderboard_spreadsheet.webp)
 
 - Credentials were generated and provided to allow access from the project to Google Sheets. These were added to the cred.json in the .gitignore file to ensure they weren't pushed to my Github repository. They also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game. 
 - The leaderboard is sorted so that the highest score appears at the top. 
+
+![leaderboard](docs/readme_images/leaderboard.webp)
+
+### Future Features
+- Improved graphics could be included within the game section for the Rock, Paper, Scissors selections.
+- The game could be made more complicated by having Rock, Paper, Scissors, Lizard, Spock which is a more advanced version of the game.
+- There could be an option to play either a greater or lessor number of games e.g. 3, 5 or 7 games. 
+
+## Data Model
+TO UPDATE THIS SECTION
+
+## Testing
+
+### PEP8 Testing
+The python files have all been passed through [PEP8 Online](http://pep8online.com/). All python files were checked with no errors reported. See screen show below:
+
+ADD SCREENSHOT OF PEP8 ONLINE CHECKER
+
+### Input Testing
+All user inputs were tested thoroughly to ensure all input data is handled correctly and appropriate feedback is given to the user as follows:
+
+- Username input: The strip() method is used to remove any extra whitespace after the user input. The capitalize() method is used to capitalize the first letter of the username. 
+- Menu options selection: - The user can select from a menu on the main menu page, the leaderboard page, the instructions page and once the game has finished.
+  - All these menus were tested to ensure that the user can only input numbers as selections (either 1, 2 or 3).
+  - In the case that any other character is entered an error message will appear. 
+- Guess Input: If the user inputs anything other than 1, 2 or 3 (Paper, Rock or Scissors) to select a hand an error message will appear. 
+ - Feedback messages received when testing all of the above were checked to ensure appropriate information was relayed to the user.
+
+
 
