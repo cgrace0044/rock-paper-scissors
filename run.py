@@ -135,7 +135,7 @@ def show_menu(context: Context) -> None:
     elif menu_option == "3":
         show_leaderboard(context)
     else:
-        print("please select 1 or 2")
+        print("please select 1, 2 or 3")
         time.sleep(2)
         show_menu(context)
 

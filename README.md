@@ -46,5 +46,15 @@ ADD LUCID FLOW CHART HERE
 ![Welcome Screen](docs/readme_images/welcome_page.webp)
 
 - Once the user enters their name the terminal greets them.
+- There is then a three seconds delay before the user is redirected to the options menu.
 
 ![Username Greeting](docs/readme_images/greeting.webp)
+
+### Options menu
+- The options menu has three possible selections: 1 for Play, 2 for Instructions and 3 for Leaderboard.
+
+![User Menu](docs/readme_images/options_menu.webp)
+
+- If the user does not input 1, 2 or 3 they will receive an error message asking them to input a valid option.
+
+![User Menu]()
