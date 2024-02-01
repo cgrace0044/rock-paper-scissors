@@ -118,9 +118,6 @@ def main() -> None:
         + f"Hello {context.username}"
         + Style.RESET_ALL
     )
-    time.sleep(3)
-    clear_screen()
-    show_menu(context)
 
 
 def show_menu(context: Context) -> None:

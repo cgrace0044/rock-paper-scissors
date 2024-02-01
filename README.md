@@ -31,3 +31,20 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
   - See how many games/rounds I have played.
   - Compare my score to others on the leaderboard.
   - Try and beat my score on the leaderboard
+
+## Logic Flow
+ADD LUCID FLOW CHART HERE
+
+![Flow Chart]()
+
+## Features
+
+### Title and Introduction Section
+- When the user enters the site they are greeted with the name of the game and are asked to enter their username. 
+- The welcome text was created using Pyfiglet which takes ASCII text and renders it into ASCII art fonts. 
+
+![Welcome Screen](docs/readme_images/welcome_page.webp)
+
+- Once the user enters their name the terminal greets them.
+
+![Username Validation](docs/readme_images/username_validation.png)
