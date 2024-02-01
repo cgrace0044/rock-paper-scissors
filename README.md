@@ -181,3 +181,6 @@ The README.md was passed through Grammarly and all links were checked before fin
 - [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
 - [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
 
+## Known Bugs
+There are no known bugs.
+
