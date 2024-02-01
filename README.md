@@ -79,4 +79,12 @@ ADD LUCID FLOW CHART HERE
 ![Game Winner](docs/readme_images/game_winner.webp)
 
 ### Guess Input Validation and Error Handling
-- 
+- If the user inputs anything other than 1, 2 or 3 to select a hand an error message will appear.
+  -  The error message reads: 'Please enter "1", "2" or "3".
+  - Please see below for some examples:
+
+![Error Handling Game](docs/readme_images/error_message_hand.webp)
+
+- In the case of a draw i.e. the user and the computer select the same hand the game will run again until there is an outright winner:
+
+![Draw Scenario](docs/readme_images/draw_scenario.webp)
