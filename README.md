@@ -65,3 +65,18 @@ ADD LUCID FLOW CHART HERE
 - From the instructions menu you can either select play by pressing 1 or quit by pressing 2.
 
 ![Instructions](docs/readme_images/instructions.webp)
+
+### Game Features
+- Once the user selects to play the game, game 1 is launched and the user will be asked to select their hand i.e. Paper, Rock or Scissors:
+
+![Play Game](docs/readme_images/play_game.webp)
+
+- When the user selects their hand and presses enter their hand is printed to the terminal.
+- The computer's random hand selection is also printed to the terminal.
+- Based on the selections made the game will decide who won.
+- The winner of each game is surrounded by a white border to make it stand out.
+
+![Game Winner](docs/readme_images/game_winner.webp)
+
+### Guess Input Validation and Error Handling
+- 
