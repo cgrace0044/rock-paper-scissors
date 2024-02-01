@@ -88,3 +88,9 @@ ADD LUCID FLOW CHART HERE
 - In the case of a draw i.e. the user and the computer select the same hand the game will run again until there is an outright winner:
 
 ![Draw Scenario](docs/readme_images/draw_scenario.webp)
+
+### Guess Feedback
+- Once all five games have been played the overall winner will be printed to the terminal.
+  - This is printed in yellow to make it stand out:
+
+![Overall Winner](docs/readme_images/overall_winner.webp)
