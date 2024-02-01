@@ -57,4 +57,4 @@ ADD LUCID FLOW CHART HERE
 
 - If the user does not input 1, 2 or 3 they will receive an error message asking them to input a valid option.
 
-![User Menu]()
+![User Menu](docs/readme_images/options_menu_error_message.webp)
