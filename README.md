@@ -184,3 +184,25 @@ The README.md was passed through Grammarly and all links were checked before fin
 ## Known Bugs
 There are no known bugs.
 
+## Fixed Bugs
+ADD FIXED BUGS HERE
+
+## Deployment
+1. Update requirements.txt file within your IDE using command pip3 freeze > requirements.txt
+2. Heroku will use the above list to install these packages into your application before the project is run.
+3. Sign into Heroku or create an account if you don't yet have one.
+4. From the Heroku dashboard click 'Create New App'
+5. Name the App and select your region. The App name will need to be something unique.
+6. Now select 'Create App'
+7. Click on the settings tab within your App and scroll to Config Vars.
+8. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.
+9. Next witin KEY type CREDS and copy and paste your credentials from the creds.json file within your IDE into the value field and click the Add button.
+10. Click add buildpack and select python, save changes and node.js and save changes.
+11. Go to the deploy section and click Github and 'Connect to Github'
+12. Search for Github repository name within the search bar.
+13. Click search and then connect to link up the repository to Heroku.
+14. You can setup automatic deploys or else you can manually deploy from branch (main) each time.
+15. Click on deploy from branch (main) and the app will build.
+16. Once complete click view to be taken to the deployed app.
+
+The site is now live and operational.
