@@ -145,7 +145,31 @@ All user inputs were tested thoroughly to ensure all input data is handled corre
   - All these menus were tested to ensure that the user can only input numbers as selections (either 1, 2 or 3).
   - In the case that any other character is entered an error message will appear. 
 - Guess Input: If the user inputs anything other than 1, 2 or 3 (Paper, Rock or Scissors) to select a hand an error message will appear. 
- - Feedback messages received when testing all of the above were checked to ensure appropriate information was relayed to the user.
 
+### Other Game Testing
+The game was tested thoroughly to ensure the following features worked as intended:
+- A random hand is always run for the computer's selection.
+- The game ends once 5 games have been completed.
+- A second round in the same game is run in the case of a draw.  
+- The leaderboard is updated at the end of the game.
+- The leaderboard displays the correct information which is sorted accurately.
+- The terminal clears at appropriate moments throughout the game e.g. when instructions menu is called, when the user chooses to restart etc. 
 
+All of the above tests were completed in my local terminal and also in the Heroku terminal.
+
+The README.md was passed through Grammarly and all links were checked before final submission.
+
+## Libraries and Technologies Used
+
+### Python Libraries:
+
+- [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) - `random.choice` is used to select a random computer hand (Rock, Paper or Scissors)
+- [os](https://docs.python.org/3/library/os.html?highlight=os#module-os) 
+  - `os.system` is used in order to clear the terminal when beginning a new game.
+- [datetime](https://pypi.org/project/DateTime/): used to get today's date for the leaderboard entry.
+- [gspread](https://pypi.org/project/gspread/): to allow communication with Google Sheets. 
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html):  used to validate credentials and grant access to google service accounts.
+- [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - for taking ASCII text and rendering it into ASCII art fonts.
+- [colorama](https://pypi.org/project/colorama/) - for adding colour to terminal text.
+- [enum](https://pypi.org/project/enum/) - This package provides a module for robust enumerations in Python. In this case deciding who wins and the player's hand.
 
