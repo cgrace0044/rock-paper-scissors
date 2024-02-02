@@ -25,7 +25,9 @@ LEADERBOARD = GSPREAD_CLIENT.open("rock_paper_scissors").worksheet(
 
 
 class Context:
-    """Main Game Class. Sets username, the total number of games and the score."""
+    """
+    Main Game Class. Sets username, the total number of games and the score.
+    """
 
     def __init__(self, username, total_games=5):
         self.username = username
@@ -126,7 +128,8 @@ def main() -> None:
 def show_menu(context: Context) -> None:
     print("Please choose from the following options:\n")
     menu_option = input(
-        f"{Fore.GREEN + Style.BRIGHT}1 - PLAY\n2 - INSTRUCTIONS\n3 - LEADERBOARD{Fore.RESET}\n"
+        f"{Fore.GREEN + Style.BRIGHT}1 - PLAY\n2 - INSTRUCTIONS\n"
+        f"3 - LEADERBOARD{Fore.RESET}\n"
     ).strip()
     if menu_option == "1":
         run_game(context)
@@ -233,7 +236,8 @@ def run_game(context: Context) -> None:
             print(
                 Fore.MAGENTA
                 + Style.BRIGHT
-                + f"Round {round} - {context.username} has produced: {player_one_hand}"
+                + f"Round {round} - {context.username} has produced: "
+                + f"{player_one_hand}"
             )
             print(
                 Fore.MAGENTA
@@ -268,11 +272,12 @@ def run_game(context: Context) -> None:
     print(
         Fore.YELLOW
         + Style.BRIGHT
-        + f"{context.username} has a total score of {context.score} out of {context.total_games}\n"
+        + f"{context.username} has a total score of {context.score} "
+        + f"out of {context.total_games}\n"
     )
     print(f"{Fore.YELLOW}=======================================\n")
     add_new_entry_leaderboard(context)
-    
+
     over_option = input(
         f"{Fore.GREEN}1 - START AGAIN \n2 - QUIT{Fore.RESET}\n"
     ).strip()
