@@ -33,9 +33,11 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
   - Try and beat my score on the leaderboard
 
 ## Logic Flow
-ADD LUCID FLOW CHART HERE
+At the outset of the project in order to visualise what the game would look like I created a flowchart using Lucidchart.
 
-![Flow Chart]()
+This enabled me to determine what functions and classes I needed for the game. It also helped me to determine which pages would be required for the game e.g welcome screen, instructions screen, gameover screen etc. Please see the flowchart below:
+
+![Flow Chart](docs/readme_images/lucid_chart.webp)
 
 ## Features
 
