@@ -53,7 +53,7 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![Username Greeting](docs/readme_images/greeting.webp)
 
 ### Options menu
-- The options menu has three possible selections: 1 for Play, 2 for Instructions and 3 for Leaderboard.
+- The options menu has three possible selections: `1` for Play, `2` for Instructions and `3` for Leaderboard.
 
 ![User Menu](docs/readme_images/options_menu.webp)
 
@@ -62,15 +62,15 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![User Menu](docs/readme_images/options_menu_error_message.webp)
 
 ### Instructions
-- If the user presses "2" and enter they will be shown the game instructions. 
+- If the user presses `2` and enter they will be shown the game instructions.
 - The instructions are surrounded by a box border to make them clear and easy to read. 
-- From the instructions menu you can either select play by pressing 1 or quit by pressing 2.
+- From the instructions menu you can either select play by pressing `1` or quit by pressing `2`.
 
 ![Instructions](docs/readme_images/instructions.webp)
 
 ### Leaderboard
-- If the user presses "3" and enter they will be taken to the leaderboard. 
-- From the leaderboard you can either select play by pressing 1 or quit by pressing 2.
+- If the user presses `3` and enter they will be taken to the leaderboard.
+- From the leaderboard you can either select play by pressing `1` or quit by pressing `2`.
 
 ![leaderboard](docs/readme_images/leaderboard.webp)
 
