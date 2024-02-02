@@ -9,8 +9,8 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
 ![Site Mockup](docs/readme_images/web_display.webp)
 
 ## How to Play
-- The user plays games of Rock, Paper, Scissors against the computer.
-- In each game, the user can manually select their play (enter 1 for Paper, 2 for Rock, and 3 for Scissors)
+- The user plays five games of Rock, Paper, Scissors against the computer.
+- In each game, the user can manually select their play (enter `1` for Paper, `2` for Rock, and `3` for Scissors)
   - The computer's choice is randomly selected.
   - In the case of a draw, i.e. the user and the computer choose the same hand, the game is run again until there is an outright winner.
   - The winner of each game is printed to the terminal.
@@ -30,7 +30,7 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
   - Be challenged by trying to beat the computer.
   - See how many games/rounds I have played.
   - Compare my score to others on the leaderboard.
-  - Try and beat my score on the leaderboard
+  - Try to beat my score on the leaderboard
 
 ## Logic Flow
 At the outset of the project in order to visualise what the game would look like I created a flowchart using Lucidchart.
@@ -64,20 +64,20 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![User Menu](docs/readme_images/options_menu_error_message.webp)
 
 ### Instructions
-- If the user presses `2` and enters they will be shown the game instructions.
+- If the user presses `2` and enter they will be shown the game instructions.
 - The instructions are surrounded by a box border to make them clear and easy to read. 
 - From the instructions menu you can either select play by pressing `1` or quit by pressing `2`.
 
 ![Instructions](docs/readme_images/instructions.webp)
 
 ### Leaderboard
-- If the user presses `3` and enters they will be taken to the leaderboard.
+- If the user presses `3` and enter they will be taken to the leaderboard.
 - From the leaderboard you can either select play by pressing `1` or quit by pressing `2`.
 
 ![leaderboard](docs/readme_images/leaderboard.webp)
 
 ### Game Features
-- Once the user selects to play the game, game 1 is launched and the user will be asked to select their hand i.e. Paper, Rock or Scissors:
+- Once the user selects to play the game, game 1 is launched and the user will be asked to select their hand i.e. `Paper`, `Rock` or `Scissors`:
 
 ![Play Game](docs/readme_images/play_game.webp)
 
@@ -127,7 +127,7 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![leaderboard](docs/readme_images/leaderboard.webp)
 
 ### Future Features
-- Improved graphics could be included within the game section for the Rock, Paper, Scissors selections.
+- Improved graphics could be included within the game section for the `Rock`, `Paper`, `Scissors` selections.
 - The game could be made more complicated by having Rock, Paper, Scissors, Lizard, Spock which is a more advanced version of the game.
 - There could be an option to play either a greater or lessor number of games e.g. 3, 5 or 7 games. 
 
@@ -138,7 +138,7 @@ There are also two other classes `Result`, an enum that represents the result of
 ## Testing
 
 ### PEP8 Testing
-The python files have all been passed through [PEP8 Online](http://pep8online.com/). All Python files were checked with no errors reported. See screen shown below:
+The python files have all been passed through [PEP8 Online](https://pep8ci.herokuapp.com/). All Python files were checked with no errors reported. See screen shown below:
 
 <details>
   <summary>run.py</summary>
