@@ -42,7 +42,7 @@ class Context:
 
 class Result(enum.Enum):
     """
-    An enum that represents the result of the game
+    An enum that represents the result of the game.
     There are three possible outcomes:
     Player 1 wins, Player 2 wins or a draw.
     """
@@ -72,8 +72,8 @@ def is_valid_username(val: str, max_length: int = 15) -> bool:
 def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
     """
     This function decides who wins the game.
-    Rock crushes scissors
-    Scissors cuts paper
+    Rock crushes scissors.
+    Scissors cuts paper.
     Paper covers rock.
     If the computer and the user produce the same hand it is a draw.
     """
@@ -198,8 +198,8 @@ def show_instructions(context: Context) -> None:
     """
     This function controls the instructions screen.
     It displays the instructions and provides 2 options:
-    1. Play - starts the game
-    2. Quit - brings the user to the gameover screen
+    1. Play - starts the game.
+    2. Quit - brings the user to the gameover screen.
     Any other selections will trigger a ValueError.
     """
     clear_screen()
@@ -296,15 +296,15 @@ def add_new_entry_leaderboard(context: Context) -> None:
 def run_game(context: Context) -> None:
     """
     This function controls the flow of the Game.
-    1. The get_user_choice function is called to display the user's hand
-    2. The get_random_hand function is called to display the computer's hand
+    1. The get_user_choice function is called to display the user's hand.
+    2. The get_random_hand function is called to display the computer's hand.
     3. The 2 functions are within a while loop so that 5 games are played.
     4. The decide_who_wins function is called to decide the result.
     5. The result of each game is printed to the terminal.
     6. Once 5 games have been played the overall winner is printed.
     7. Two options are then displayed:
-        1. Start Again - brings the user back to the Welcome Screen
-        2. Quit - displays the gameover screen
+        1. Start Again - brings the user back to the Welcome Screen.
+        2. Quit - displays the gameover screen.
     """
     clear_screen()
     while context.current_game < context.total_games + 1:
