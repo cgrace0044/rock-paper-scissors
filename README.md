@@ -1,6 +1,6 @@
 # Rock Paper Scissors
-Rock Paper Scissors is a classic two person game. Players start each round by selecting rock, paper or scissors. Rock crushes scissors, scissors cuts paper, and paper covers rock.
-In this project the user plays against the computer over five games to see who wins. 
+Rock Paper Scissors is a classic two-person game. Players start each round by selecting rock, paper, or scissors. Rock crushes scissors, scissors cut paper, and paper covers rock.
+In this project, the user plays against the computer over five games to see who wins. 
 
 The game is a mixture of luck and logic.
 
@@ -9,10 +9,10 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
 ![Site Mockup](docs/readme_images/web_display.webp)
 
 ## How to Play
-- The user plays  games of Rock, Paper, Scissors againsts the computer.
-- In each game the user can manually select their play (enter 1 for Paper, 2 for Rock and 3 for Scissors)
+- The user plays games of Rock, Paper, Scissors against the computer.
+- In each game, the user can manually select their play (enter 1 for Paper, 2 for Rock, and 3 for Scissors)
   - The computer's choice is randomly selected.
-  - In the case of a draw i.e. the user and the computer choose the same hand, the game is run again until there is an outright winner.
+  - In the case of a draw, i.e. the user and the computer choose the same hand, the game is run again until there is an outright winner.
   - The winner of each game is printed to the terminal.
   - The overall winner after five games have been played is also printed to the terminal.
 - The user's score is saved to the leaderboard.
@@ -26,7 +26,7 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
 
 - ### As a user I want to:
   - Understand the main purpose of the game via the instructions.
-  - Be kept engaged throughout with simple graphics/text which show how the game is progressing.
+  - Be kept engaged throughout with simple graphics or text that show how the game is progressing.
   - Be challenged by trying to beat the computer.
   - See how many games/rounds I have played.
   - Compare my score to others on the leaderboard.
@@ -35,7 +35,7 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
 ## Logic Flow
 At the outset of the project in order to visualise what the game would look like I created a flowchart using Lucidchart.
 
-This enabled me to determine what functions and classes I needed for the game. It also helped me to determine which pages would be required for the game e.g welcome screen, instructions screen, gameover screen etc. Please see the flowchart below:
+This enabled me to determine what functions and classes I needed for the game. It also helped me to determine which pages would be required for the game e.g welcome screen, instructions screen, gameover screen, etc. Please see the flowchart below:
 
 ![Flow Chart](docs/readme_images/lucid_chart.webp)
 
@@ -48,28 +48,30 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![Welcome Screen](docs/readme_images/welcome_page.webp)
 
 - Once the user enters their name the terminal greets them.
+- The username has to be greater than 0 but less than 15 characters.
+  - If not the user is prompted to enter their name again.
 - There is then a three seconds delay before the user is redirected to the options menu.
 
 ![Username Greeting](docs/readme_images/greeting.webp)
 
 ### Options menu
-- The options menu has three possible selections: `1` for Play, `2` for Instructions and `3` for Leaderboard.
+- The options menu has three possible selections: `1` for Play, `2` for Instructions, and `3` for Leaderboard.
 
 ![User Menu](docs/readme_images/options_menu.webp)
 
-- If the user does not input 1, 2 or 3 they will receive an error message asking them to input a valid option.
+- If the user does not input `1`, `2`, or `3` they will receive an error message asking them to input a valid option.
 
 ![User Menu](docs/readme_images/options_menu_error_message.webp)
 
 ### Instructions
-- If the user presses `2` and enter they will be shown the game instructions.
+- If the user presses `2` and enters they will be shown the game instructions.
 - The instructions are surrounded by a box border to make them clear and easy to read. 
 - From the instructions menu you can either select play by pressing `1` or quit by pressing `2`.
 
 ![Instructions](docs/readme_images/instructions.webp)
 
 ### Leaderboard
-- If the user presses `3` and enter they will be taken to the leaderboard.
+- If the user presses `3` and enters they will be taken to the leaderboard.
 - From the leaderboard you can either select play by pressing `1` or quit by pressing `2`.
 
 ![leaderboard](docs/readme_images/leaderboard.webp)
@@ -87,7 +89,7 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![Game Winner](docs/readme_images/game_winner.webp)
 
 ### Guess Input Validation and Error Handling
-- If the user inputs anything other than 1, 2 or 3 to select a hand an error message will appear.
+- If the user inputs anything other than `1`, `2`, or `3` to select a hand an error message will appear.
   -  The error message reads: 'Please enter "1", "2" or "3".
   - Please see below for some examples:
 
@@ -105,7 +107,7 @@ This enabled me to determine what functions and classes I needed for the game. I
 
 ### Option to Restart or Quit
 - Once the game is over the user is informed that the leaderboard has been updated.
-- They are then given the option to 1. Start Again or 2. Quit
+- They are then given the option to `1`. Start Again or `2`. Quit
 
 ![Restart or Quit](docs/readme_images/restart_or_quit.webp)
 
@@ -131,23 +133,23 @@ This enabled me to determine what functions and classes I needed for the game. I
 
 ## Data Model
 I decided to use a `Context` class as my model. The `Context` class holds all the game-related information and contains the username, the number of games and the score.
-There are also two other classes `Result`, an enum that represents the result of the game (player 1 wins, player 2 wins or draw) and a `Hand` class which defines the three possible hands in the game: rock, paper or scissors.
+There are also two other classes `Result`, an enum that represents the result of the game (player 1 wins, player 2 wins, or draw), and a `Hand` class which defines the three possible hands in the game: rock, paper or scissors.
 
 ## Testing
 
 ### PEP8 Testing
-The python files have all been passed through [PEP8 Online](http://pep8online.com/). All python files were checked with no errors reported. See screen show below:
+The python files have all been passed through [PEP8 Online](http://pep8online.com/). All Python files were checked with no errors reported. See screen shown below:
 
 ADD SCREENSHOT OF PEP8 ONLINE CHECKER
 
 ### Input Testing
-All user inputs were tested thoroughly to ensure all input data is handled correctly and appropriate feedback is given to the user as follows:
+All user inputs were tested thoroughly to ensure all input data was handled correctly and appropriate feedback was given to the user as follows:
 
 - Username input: The strip() method is used to remove any extra whitespace after the user input. The capitalize() method is used to capitalize the first letter of the username. 
-- Menu options selection: - The user can select from a menu on the main menu page, the leaderboard page, the instructions page and once the game has finished.
-  - All these menus were tested to ensure that the user can only input numbers as selections (either 1, 2 or 3).
+- Menu options selection: - The user can select from a menu on the main menu page, the leaderboard page, the instructions page, and once the game has finished.
+  - All these menus were tested to ensure that the user can only input numbers as selections (either `1`, `2`, or `3`).
   - In the case that any other character is entered an error message will appear. 
-- Guess Input: If the user inputs anything other than 1, 2 or 3 (Paper, Rock or Scissors) to select a hand an error message will appear. 
+- Guess Input: If the user inputs anything other than `1`, `2`, or `3` (Paper, Rock, or Scissors) to select a hand an error message will appear. 
 
 ### Other Game Testing
 The game was tested thoroughly to ensure the following features worked as intended:
@@ -183,7 +185,6 @@ The README.md was passed through Grammarly and all links were checked before fin
 - [Heroku](https://dashboard.heroku.com/apps) -  used to deploy the live project.
 - [Lucidchart](https://lucid.app/documents#/dashboard) -  used to create the game flowchart
 - [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
-- [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
 
 ## Known Bugs
 There are no known bugs.
