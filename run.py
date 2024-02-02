@@ -48,6 +48,10 @@ class Hand(int, enum.Enum):
     scissors = 3
 
 
+def is_valid_username(val: str, max_length: int = 15) -> bool:
+    return 0 < len(val) <= max_length
+
+
 def decide_who_wins(player_one_hand: Hand, player_two_hand: Hand) -> Result:
     if player_one_hand == player_two_hand:
         return Result.draw
@@ -107,11 +111,15 @@ def main() -> None:
     print(
         Fore.GREEN + Style.BRIGHT + "Can you beat the computer?\n".center(80)
     )
-    username = (
-        input(Fore.YELLOW + Style.BRIGHT + "Please enter your name to begin: ")
-        .strip()
-        .capitalize()
-    )
+
+    username = ""
+    while not is_valid_username(username):
+        username = (
+            input(Fore.YELLOW + Style.BRIGHT + "Please enter your name to begin: ")
+            .strip()
+            .capitalize()
+        )
+
     context = Context(username)
 
     print(
