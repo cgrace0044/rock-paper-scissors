@@ -168,7 +168,7 @@ The game was tested thoroughly to ensure the following features worked as intend
 - A second round in the same game is run in the case of a draw.  
 - The leaderboard is updated at the end of the game.
 - The leaderboard displays the correct information which is sorted accurately.
-- The terminal clears at appropriate moments throughout the game e.g. when instructions menu is called, when the user chooses to restart etc. 
+- The terminal clears at appropriate moments throughout the game e.g. when the instructions menu is called, when the user chooses to restart etc. 
 
 All of the above tests were completed in my local terminal and also in the Heroku terminal.
 
@@ -194,7 +194,7 @@ The README.md was passed through Grammarly and all links were checked before fin
 - [GitHub](https://github.com/) - used for version control.
 - [Heroku](https://dashboard.heroku.com/apps) -  used to deploy the live project.
 - [Lucidchart](https://lucid.app/documents#/dashboard) -  used to create the game flowchart
-- [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
+- [PEP8 Online](https://pep8ci.herokuapp.com/) - used to validate all the Python code
 
 ## Known Bugs
 There are no known bugs.
@@ -218,6 +218,7 @@ At the start I had included some global variables in my code, for the 'username'
 ![Context Class](docs/readme_images/context_class.webp)
 
 ## Deployment
+In order to deploy the app to Heroku the following steps were followed:
 1. Update requirements.txt file within your IDE using command pip3 freeze > requirements.txt
 2. Heroku will use the above list to install these packages into your application before the project is run.
 3. Sign into Heroku or create an account if you don't yet have one.
@@ -227,9 +228,9 @@ At the start I had included some global variables in my code, for the 'username'
 7. Click on the settings tab within your App and scroll to Config Vars.
 8. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.
 9. Next within KEY type CREDS and copy and paste your credentials from the creds.json file within your IDE into the value field and click the Add button.
-10. Click add buildpack and select python, save changes and node.js and save changes.
+10. Click add buildpack and select python, save changes, and click node.js and save changes.
 11. Go to the deploy section and click Github and 'Connect to Github'
-12. Search for Github repository name within the search bar.
+12. Search for the Github repository name within the search bar.
 13. Click search and then connect to link up the repository to Heroku.
 14. You can setup automatic deploys or else you can manually deploy from branch (main) each time.
 15. Click on deploy from branch (main) and the app will build.
