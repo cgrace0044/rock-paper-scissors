@@ -140,7 +140,17 @@ There are also two other classes `Result`, an enum that represents the result of
 ### PEP8 Testing
 The python files have all been passed through [PEP8 Online](http://pep8online.com/). All Python files were checked with no errors reported. See screen shown below:
 
-ADD SCREENSHOT OF PEP8 ONLINE CHECKER
+<details>
+  <summary>run.py</summary>
+
+  ![Run](docs/readme_images/runpy_pep8.webp)
+</details>
+
+<details>
+  <summary>test_game.py</summary>
+
+  ![Test Game](docs/readme_images/test_gamepy.webp)
+</details>
 
 ### Input Testing
 All user inputs were tested thoroughly to ensure all input data was handled correctly and appropriate feedback was given to the user as follows:
