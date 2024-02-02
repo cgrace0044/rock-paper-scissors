@@ -232,6 +232,12 @@ The site is now live and operational.
 - [Pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) - I used this link to create the art on the homescreen and the gameover screen.
 - [Colorama](https://pypi.org/project/colorama/) - I used this Colorama tutorial.
 - [Colorama2](https://scriptopia.co.uk/2023/04/09/python-colorama-change-text-and-background-color/) - I used this link to learn how to reset default styles in Colorama
+- I watched a number of Youtube videos prior to starting the project about Rock, Paper, Scissors games in Python including:
+    - [How to code Rock Paper Scissors Python Beginner Tutorial](https://www.youtube.com/watch?v=xRlN8CFJwAM)
+    - [Rock Paper Scissors Game in Python](https://www.youtube.com/watch?v=fn68QNcatfo)
+- In order to understand 'enum' I read a number of documents including:
+    - [Enum doc Python](https://docs.python.org/3/howto/enum.html)
+    - [Rock Paper Scissors and Enum](https://realpython.com/python-rock-paper-scissors/)
 
 ## Acknowledgments
 
