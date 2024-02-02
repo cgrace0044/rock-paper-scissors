@@ -128,7 +128,10 @@ ADD LUCID FLOW CHART HERE
 - There could be an option to play either a greater or lessor number of games e.g. 3, 5 or 7 games. 
 
 ## Data Model
-TO UPDATE THIS SECTION
+I decided to use a context class as my model. The context class is the main game class and contains the username, the number of games and the score.
+There are also two other classes Class Result --> decides the result of the game (win, lose or draw) and Class Hand which defines the three possible hands in the game i.e. rock, paper or scissors.
+
+The classes are used throughout the various functions within the game: 
 
 ## Testing
 
@@ -242,3 +245,5 @@ The site is now live and operational.
 ## Acknowledgments
 
 My mentor Antonio for his support and advice.
+
+Code Institute for the deployment terminal.

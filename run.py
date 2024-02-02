@@ -25,7 +25,7 @@ LEADERBOARD = GSPREAD_CLIENT.open("rock_paper_scissors").worksheet(
 
 
 class Context:
-    """Game context"""
+    """Main Game Class. Sets username, the total number of games and the score."""
 
     def __init__(self, username, total_games=5):
         self.username = username
