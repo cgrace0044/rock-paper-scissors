@@ -191,12 +191,12 @@ ADD FIXED BUGS HERE
 1. Update requirements.txt file within your IDE using command pip3 freeze > requirements.txt
 2. Heroku will use the above list to install these packages into your application before the project is run.
 3. Sign into Heroku or create an account if you don't yet have one.
-4. From the Heroku dashboard click 'Create New App'
+4. From the Heroku dashboard click 'Create New App'.
 5. Name the App and select your region. The App name will need to be something unique.
 6. Now select 'Create App'
 7. Click on the settings tab within your App and scroll to Config Vars.
 8. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.
-9. Next witin KEY type CREDS and copy and paste your credentials from the creds.json file within your IDE into the value field and click the Add button.
+9. Next within KEY type CREDS and copy and paste your credentials from the creds.json file within your IDE into the value field and click the Add button.
 10. Click add buildpack and select python, save changes and node.js and save changes.
 11. Go to the deploy section and click Github and 'Connect to Github'
 12. Search for Github repository name within the search bar.
@@ -206,3 +206,17 @@ ADD FIXED BUGS HERE
 16. Once complete click view to be taken to the deployed app.
 
 The site is now live and operational.
+
+## Credits 
+### Resources Used
+- [W3Schools](https://www.w3schools.com/)  
+- [Stack Overflow](https://stackoverflow.com/) 
+- [ASCII Art](https://www.asciiart.eu/art-and-design/borders) - I used this ASCII art for the border around the instructions.
+- I followed the steps in the Code Institute Python walkthrough project - Love Sandwiches when setting up my Google Sheets API.
+- [Pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) - I used this link to create the art on the homescreen and the gameover screen.
+- [Colorama](https://pypi.org/project/colorama/) - I used this Colorama tutorial.
+- [Colorama2](https://scriptopia.co.uk/2023/04/09/python-colorama-change-text-and-background-color/) - I used this link to learn how to reset default styles in Colorama
+
+## Acknowledgments
+
+My mentor Antonio for his support and advice.
