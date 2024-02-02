@@ -155,7 +155,7 @@ The python files have all been passed through [PEP8 Online](https://pep8ci.herok
 ### Input Testing
 All user inputs were tested thoroughly to ensure all input data was handled correctly and appropriate feedback was given to the user as follows:
 
-- Username input: The strip() method is used to remove any extra whitespace after the user input. The capitalize() method is used to capitalize the first letter of the username. 
+- Username input: The strip() method is used to remove any extra whitespace after the user input. The capitalize() method is used to capitalize the first letter of the username. The username has to be between 0 and 15 characters otherwise the user is prompted to enter their username again.
 - Menu options selection: - The user can select from a menu on the main menu page, the leaderboard page, the instructions page, and once the game has finished.
   - All these menus were tested to ensure that the user can only input numbers as selections (either `1`, `2`, or `3`).
   - In the case that any other character is entered an error message will appear. 
