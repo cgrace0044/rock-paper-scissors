@@ -1,3 +1,7 @@
+"""
+Import libraries needed for game.
+"""
+
 from datetime import date
 import enum
 import random
@@ -37,6 +41,9 @@ class Context:
 
 
 class Result(enum.Enum):
+    """
+    
+    """
     player_one_wins = enum.auto()
     player_two_wins = enum.auto()
     draw = enum.auto()

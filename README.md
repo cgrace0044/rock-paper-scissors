@@ -130,10 +130,8 @@ This enabled me to determine what functions and classes I needed for the game. I
 - There could be an option to play either a greater or lessor number of games e.g. 3, 5 or 7 games. 
 
 ## Data Model
-I decided to use a context class as my model. The context class is the main game class and contains the username, the number of games and the score.
-There are also two other classes Class Result --> decides the result of the game (win, lose or draw) and Class Hand which defines the three possible hands in the game i.e. rock, paper or scissors.
-
-The classes are used throughout the various functions within the game: 
+I decided to use a `Context` class as my model. The `Context` class holds all the game-related information and contains the username, the number of games and the score.
+There are also two other classes `Result`, an enum that represents the result of the game (player 1 wins, player 2 wins or draw) and a `Hand` class which defines the three possible hands in the game: rock, paper or scissors.
 
 ## Testing
 
