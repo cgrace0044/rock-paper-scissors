@@ -172,6 +172,7 @@ The README.md was passed through Grammarly and all links were checked before fin
 - [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - for taking ASCII text and rendering it into ASCII art fonts.
 - [colorama](https://pypi.org/project/colorama/) - for adding colour to terminal text.
 - [enum](https://pypi.org/project/enum/) - This package provides a module for robust enumerations in Python. In this case deciding who wins and the player's hand.
+- [warnings](https://python.readthedocs.io/en/latest/library/warnings.html) - Warnings was imported to temporarily ignore a future deprecation warning for GSHEET.
 
 ### Programs Used
 
@@ -185,7 +186,22 @@ The README.md was passed through Grammarly and all links were checked before fin
 There are no known bugs.
 
 ## Fixed Bugs
-ADD FIXED BUGS HERE
+
+### Warning message deprecation GSHEET
+Both in the terminal and in Heroku I was getting a future deprecation warning for GSHEET. This was for a future version of Python. Since both my IDE and Heroku are using an older version of Python the warning message was not applicable. In order to temporarily hide the future deprecation warning I imported the warning library and added this code to the add_new_entry_leaderboard function: with warnings.catch_warnings(): warnings.simplefilter("ignore").
+
+It was important to only add the ignore warnings to a small block of code so that warnings are working on the rest of the code base.
+
+### Sorting Leaderboard
+Originally I was stuck as to how to sort the leaderboard. By typing the below code into the terminal I learned about all the different commands available in GSHEET:
+![Commands](docs/readme_images/dir_leaderboard_sort.webp)
+
+With the simple code: LEADERBOARD.sort((2, "des")) I was able to sort the leaderboard.
+
+### Removing Global Variables
+At the start I had included some global variables in my code, for the 'username', for example. I was reading that global variables are not recommended in Python as it can make the code more difficult to debug in the future. This led to me refactoring the code and developing the 'context' class.
+
+![Context Class](docs/readme_images/context_class.webp)
 
 ## Deployment
 1. Update requirements.txt file within your IDE using command pip3 freeze > requirements.txt
