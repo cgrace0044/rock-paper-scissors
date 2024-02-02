@@ -152,6 +152,13 @@ The python files have all been passed through [PEP8 Online](https://pep8ci.herok
   ![Test Game](docs/readme_images/test_gamepy.webp)
 </details>
 
+### test_game.py
+I created one pytest for the game. This was for deciding the winner of each game. Since there are multiple outcomes to each game I wanted to ensure that the correct winner was printing to the terminal.
+
+![Test Game](docs/readme_images/pytest.webp)
+
+The test is running with no issues noted.
+
 ### Input Testing
 All user inputs were tested thoroughly to ensure all input data was handled correctly and appropriate feedback was given to the user as follows:
 
