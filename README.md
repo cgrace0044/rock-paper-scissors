@@ -113,7 +113,7 @@ This enabled me to determine what functions and classes I needed for the game. I
 
 ![Restart or Quit](docs/readme_images/restart_or_quit.webp)
 
-- Restarting will bring the user back to the login page.
+- Restarting will bring the user back to the start of the game.
 - Quitting will bring the user to a gameover screen. 
 
 ![Gameover](docs/readme_images/gameover.webp)
@@ -124,18 +124,19 @@ This enabled me to determine what functions and classes I needed for the game. I
 ![leaderboard](docs/readme_images/leaderboard_spreadsheet.webp)
 
 - Credentials were generated and provided to allow access from the project to Google Sheets. These were added to the cred.json in the .gitignore file to ensure they weren't pushed to my Github repository. They also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game. 
-- The leaderboard is sorted so that the highest score appears at the top. 
+- The leaderboard is sorted so that the highest score appears at the top.
+- Google Sheets contains all entries but Heroku will just display the top ten users in the leaderboard.
 
 ![leaderboard](docs/readme_images/leaderboard.webp)
 
 ### Future Features
 - Improved graphics could be included within the game section for the `Rock`, `Paper`, `Scissors` selections.
 - The game could be made more complicated by having Rock, Paper, Scissors, Lizard, Spock which is a more advanced version of the game.
-- There could be an option to play either a greater or lessor number of games e.g. 3, 5 or 7 games. 
+- There could be an option to play either a greater or lessor number of games e.g. 3, 5 or 7 games.
+- Perhaps I could add a running score as the game progresses - however there is a risk that the terminal becomes too crowded.
 
 ## Data Model
-I decided to use a `Context` class as my model. The `Context` class holds all the game-related information and contains the username, the number of games and the score.
-There are also two other classes `Result`, an enum that represents the result of the game (player 1 wins, player 2 wins, or draw), and a `Hand` class which defines the three possible hands in the game: rock, paper or scissors.
+I decided to use a `Context` class as my model. The `Context` class holds all the game-related information and contains the username, the current game and the score. The context is reset when a new game is run. There are also two other classes `Result`, an enum that represents the result of the game (player 1 wins, player 2 wins, or draw), and a `Hand` class which defines the three possible hands in the game: rock, paper or scissors.
 
 ## Testing
 
