@@ -46,6 +46,7 @@ class Result(enum.Enum):
     There are three possible outcomes:
     Player 1 wins, Player 2 wins or a draw.
     """
+
     player_one_wins = enum.auto()
     player_two_wins = enum.auto()
     draw = enum.auto()
@@ -56,6 +57,7 @@ class Hand(int, enum.Enum):
     Class which defines the three possible hands in the game:
     Paper, Rock or Scissors.
     """
+
     paper = 1
     rock = 2
     scissors = 3
@@ -148,13 +150,24 @@ def main() -> None:
     )
 
     username = ""
-    while not is_valid_username(username):
+    while True:
         username = (
-            input
-            (Fore.YELLOW + Style.BRIGHT + "Please enter your name to begin: ")
+            input(
+                Fore.YELLOW
+                + Style.BRIGHT
+                + "Please enter your name to begin: "
+            )
             .strip()
             .capitalize()
         )
+        if not is_valid_username(username):
+            print(
+                Fore.RED
+                + Style.BRIGHT
+                + "Invalid username, length must be between 1 and 15 characters"
+            )
+        else:
+            break
 
     context = Context(username)
 
