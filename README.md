@@ -37,7 +37,7 @@ At the outset of the project in order to visualise what the game would look like
 
 This enabled me to determine what functions and classes I needed for the game. It also helped me to determine which pages would be required for the game e.g welcome screen, instructions screen, gameover screen, etc. Please see the flowchart below:
 
-![Flow Chart](docs/readme_images/lucid_chart.webp)
+![Flow Chart](docs/readme_images/flowchart.webp)
 
 ## Features
 
