@@ -15,7 +15,7 @@ The live link can be found here - [Rock-Paper-Scissors](https://rock-paper-sciss
   - In the case of a draw, i.e. the user and the computer choose the same hand, the game is run again until there is an outright winner.
   - The winner of each game is printed to the terminal.
   - The overall winner after five games have been played is also printed to the terminal.
-- The user's score is saved to the leaderboard.
+- The top ten scores are saved in the leaderboard.
 
 ## Site Owner Goals
 - To provide the user with a simple game that is both challenging and rewarding.

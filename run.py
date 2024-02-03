@@ -14,6 +14,7 @@ from google.oauth2.service_account import Credentials
 import pyfiglet
 from colorama import Fore, Style
 
+TOTAL_GAMES = 5
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -33,9 +34,12 @@ class Context:
     Main Game Class. Sets username, the total number of games and the score.
     """
 
-    def __init__(self, username, total_games=5):
+    def __init__(self, username):
         self.username = username
-        self.total_games = total_games
+        self.current_game = 1
+        self.score = 0
+
+    def reset(self):
         self.current_game = 1
         self.score = 0
 
@@ -324,7 +328,7 @@ def run_game(context: Context) -> None:
         2. Quit - displays the gameover screen.
     """
     clear_screen()
-    while context.current_game < context.total_games + 1:
+    while context.current_game < TOTAL_GAMES + 1:
         game_is_finished = False
         round = 1
         while not game_is_finished:
@@ -347,11 +351,7 @@ def run_game(context: Context) -> None:
 
             result = decide_who_wins(player_one_hand, player_two_hand)
             if result == Result.draw:
-                print(
-                    Fore.WHITE
-                    + Style.BRIGHT
-                    + "Draw! Play game again!"
-                    )
+                print(Fore.WHITE + Style.BRIGHT + "Draw! Play game again!")
                 round += 1
                 continue
 
@@ -378,28 +378,31 @@ def run_game(context: Context) -> None:
         Fore.YELLOW
         + Style.BRIGHT
         + f"{context.username} has a total score of {context.score} "
-        + f"out of {context.total_games}\n"
+        + f"out of {TOTAL_GAMES}\n"
     )
     print(f"{Fore.YELLOW}=======================================\n")
     add_new_entry_leaderboard(context)
 
-    play_again()
+    show_play_again(context)
 
 
-def play_again():
+def show_play_again(context):
     over_option = input(
         f"{Fore.GREEN}1 - START AGAIN \n2 - QUIT{Fore.RESET}\n"
     ).strip()
     if over_option == "1":
         clear_screen()
-        main()
+        # reset the context before starting again to ensure we don't
+        # affect the leaderboard scores
+        context.reset()
+        run_game(context)
     elif over_option == "2":
         clear_screen()
         gameover()
     else:
         print("please select 1 or 2")
         time.sleep(2)
-        play_again()
+        show_play_again(context)
 
 
 if __name__ == "__main__":
