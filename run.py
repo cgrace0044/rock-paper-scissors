@@ -164,7 +164,7 @@ def main() -> None:
             print(
                 Fore.RED
                 + Style.BRIGHT
-                + "Invalid username, length must be between 1 and 15 characters"
+                + "Username must be between 1 and 15 characters"
             )
         else:
             break
