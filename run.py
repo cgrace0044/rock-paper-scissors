@@ -347,6 +347,11 @@ def run_game(context: Context) -> None:
 
             result = decide_who_wins(player_one_hand, player_two_hand)
             if result == Result.draw:
+                print(
+                    Fore.WHITE
+                    + Style.BRIGHT
+                    + "Draw! Play game again!"
+                    )
                 round += 1
                 continue
 
