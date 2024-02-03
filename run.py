@@ -234,7 +234,7 @@ def show_instructions(context: Context) -> None:
                  |        Can you beat the computer?          |
                  |   How many games can you win out of 5?     |
                  |                                            |
-                 |   In the case of a draw another round of   | 
+                 |   In the case of a draw another round of   |
                  | the same game is generated until there is  |
                  |             an outright winner.            |
                  |                                            |
@@ -346,7 +346,8 @@ def run_game(context: Context) -> None:
             print(
                 Fore.MAGENTA
                 + Style.BRIGHT
-                + f"Round {round} - Computer has produced: {player_two_hand.name}\n"
+                + f"Round {round} - Computer has produced: "
+                + f"{player_two_hand.name}\n"
             )
 
             result = decide_who_wins(player_one_hand, player_two_hand)
