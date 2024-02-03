@@ -264,7 +264,7 @@ def show_leaderboard(context: Context) -> None:
     Any other selections will trigger a ValueError.
     """
     clear_screen()
-    for name, score, date in LEADERBOARD.get_all_values()[1:]:
+    for name, score, date in LEADERBOARD.get_all_values()[1:][0:10]:
         print(f"{name} scored {score} on {date}")
     leaderboard_option = input(
         f"{Fore.GREEN}1 - PLAY\n2 - QUIT{Fore.RESET}\n"
