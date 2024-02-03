@@ -337,12 +337,12 @@ def run_game(context: Context) -> None:
                 Fore.MAGENTA
                 + Style.BRIGHT
                 + f"Round {round} - {context.username} has produced: "
-                + f"{player_one_hand}"
+                + f"{player_one_hand.name}"
             )
             print(
                 Fore.MAGENTA
                 + Style.BRIGHT
-                + f"Round {round} - Computer has produced: {player_two_hand}\n"
+                + f"Round {round} - Computer has produced: {player_two_hand.name}\n"
             )
 
             result = decide_who_wins(player_one_hand, player_two_hand)
