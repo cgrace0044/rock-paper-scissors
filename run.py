@@ -319,7 +319,7 @@ def run_game(context: Context) -> None:
     4. The decide_who_wins function is called to decide the result.
     5. The result of each game is printed to the terminal.
     6. Once 5 games have been played the overall winner is printed.
-    7. Two options are then displayed:
+    7. The play_again function is then called which has two options:
         1. Start Again - brings the user back to the Welcome Screen.
         2. Quit - displays the gameover screen.
     """
@@ -378,6 +378,10 @@ def run_game(context: Context) -> None:
     print(f"{Fore.YELLOW}=======================================\n")
     add_new_entry_leaderboard(context)
 
+    play_again()
+
+
+def play_again():
     over_option = input(
         f"{Fore.GREEN}1 - START AGAIN \n2 - QUIT{Fore.RESET}\n"
     ).strip()
@@ -389,6 +393,8 @@ def run_game(context: Context) -> None:
         gameover()
     else:
         print("please select 1 or 2")
+        time.sleep(2)
+        play_again()
 
 
 if __name__ == "__main__":
