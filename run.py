@@ -31,7 +31,7 @@ LEADERBOARD = GSPREAD_CLIENT.open("rock_paper_scissors").worksheet(
 
 class Context:
     """
-    Main Game Class. Sets username, the total number of games and the score.
+    Main Game Class. Sets username, the current game and the score.
     """
 
     def __init__(self, username):
@@ -323,8 +323,8 @@ def run_game(context: Context) -> None:
     4. The decide_who_wins function is called to decide the result.
     5. The result of each game is printed to the terminal.
     6. Once 5 games have been played the overall winner is printed.
-    7. The play_again function is then called which has two options:
-        1. Start Again - brings the user back to the Welcome Screen.
+    7. The show_play_again function is then called which has two options:
+        1. Start Again - allows the user to play again.
         2. Quit - displays the gameover screen.
     """
     clear_screen()
@@ -387,6 +387,12 @@ def run_game(context: Context) -> None:
 
 
 def show_play_again(context):
+    """
+    There are two options at the end of the game:
+    1. Start Again - allows the user to play again.
+    2. Quit - displays the gameover screen.
+    Any other selection will trigger an error message.
+    """
     over_option = input(
         f"{Fore.GREEN}1 - START AGAIN \n2 - QUIT{Fore.RESET}\n"
     ).strip()
