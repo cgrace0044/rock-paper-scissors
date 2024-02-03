@@ -14,3 +14,4 @@ def test_decide_who_wins():
     assert decide_who_wins(Hand.paper, Hand.scissors) == Result.player_two_wins
     assert decide_who_wins(Hand.rock, Hand.scissors) == Result.player_one_wins
     assert decide_who_wins(Hand.scissors, Hand.scissors) == Result.draw
+    
