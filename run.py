@@ -164,7 +164,7 @@ def main() -> None:
             print(
                 Fore.RED
                 + Style.BRIGHT
-                + "Username must be between 1 and 15 characters"
+                + "Username length must be between 1 and 15 characters"
             )
         else:
             break
@@ -229,6 +229,10 @@ def show_instructions(context: Context) -> None:
                  |                                            |
                  |        Can you beat the computer?          |
                  |   How many games can you win out of 5?     |
+                 |                                            |
+                 |   In the case of a draw another round of   | 
+                 | the same game is generated until there is  |
+                 |             an outright winner.            |
                  |                                            |
                  |        Press 1 to Play or 2 to Quit        |
                  |                                            |
