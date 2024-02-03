@@ -54,6 +54,8 @@ This enabled me to determine what functions and classes I needed for the game. I
 
 ![Username Greeting](docs/readme_images/greeting.webp)
 
+![Username Error](docs/readme_images/username_error.webp)
+
 ### Options menu
 - The options menu has three possible selections: `1` for Play, `2` for Instructions, and `3` for Leaderboard.
 
